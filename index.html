@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Socialbook - html css template</title>
+    <script src="https://kit.fontawesome.com/ef7e2b893b.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-left"><img class="logo" src="images/logo.png" alt="">
+            <ul class="navlogo">
+                <li><img src="images/notification.png"></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="search-box">
+
+                <img src="images/search.png" alt="">
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="profile-image online" onclick="UserSettingToggle()">
+                <img src="images/profile-pic.png" alt="">
+            </div>
+
+        </div>
+        <div class="user-settings">
+            <div class="profile-darkButton">
+            <div class="user-profile">
+                <img src="images/profile-pic.png" alt="">
+                <div>
+                    <p> Alex Carry</p>
+                    <a href="#">See your profile</a>
+                </div>
+            </div>
+            <div id="dark-button" onclick="darkModeON()">
+                <span></span>
+            </div>
+            </div>
+            <hr>
+            <hr>
+            <div class="settings-links">
+                <img src="images/setting.png" alt="" class="settings-icon">
+                <a href="#">Settings & Privary <img src="images/arrow.png" alt=""></a>
+            </div>
+            <div class="settings-links">
+                <img src="images/logout.png" alt="" class="settings-icon">
+                <a href="#">Logout <img src="images/arrow.png" alt=""></a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- content-area------------ -->
+
+    <div class="container">
+        <div class="left-sidebar">
+            <div class="important-links">
+                <a href="#"><img src="images/news.png" alt="">Latest News</a>
+                <a href="#"><img src="images/friends.png" alt="">Friends</a>
+                <a href="#"><img src="images/group.png" alt="">Groups</a>
+            </div>
+
+
+        </div>
+
+        <!-- main-content------- -->
+
+        <div class="content-area">
+            <div class="write-post-container">
+                <div class="user-profile">
+                    <img src="images/profile-pic.png" alt="">
+                    <div>
+                        <p> Alex Carry</p>
+                        <small>Public <i class="fas fa-caret-down"></i></small>
+                    </div>
+                </div>
+
+                <div class="post-upload-textarea">
+                    <button name="" placeholder="" id="" cols="30" rows="3">What's on your mind, Alex?</button>
+                </div>
+            </div>
+
+            <div class="status-field-container write-post-container">
+                <div class="user-profile-box">
+                    <div class="user-profile">
+                        <img src="images/profile-pic.png" alt="">
+                        <div>
+                            <p> Alex Carry</p>
+                            <small>August 13 1999, 09.18 pm</small>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+                    </div>
+                </div>
+                <div class="status-field">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolores praesentium dicta
+                        laborum nihil accusantium odit laboriosam, sed sit autem! <a
+                            href="#">#This_Post_is_Better!!!!</a> </p>
+                    <img src="images/feed-image-1.png" alt="">
+
+                </div>
+                <div class="post-reaction">
+                    <div class="activity-icons">
+                        <div><img src="images/like-blue.png" alt="">120</div>
+                        <div><img src="images/comments.png" alt="">52</div>
+                        <div><img src="images/share.png" alt="">35</div>
+                    </div>
+                    <div class="post-profile-picture">
+                        <img src="images/profile-pic.png " alt=""> <i class=" fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="status-field-container write-post-container">
+                <div class="user-profile-box">
+                    <div class="user-profile">
+                        <img src="images/profile-pic.png" alt="">
+                        <div>
+                            <p> Alex Carry</p>
+                            <small>August 13 1999, 09.18 pm</small>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+                    </div>
+                </div>
+                <div class="status-field">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolores praesentium dicta
+                        laborum nihil accusantium odit laboriosam, sed sit autem! <a
+                            href="#">#This_Post_is_Bigger!!!!</a> </p>
+                    <img src="images/feed-image-2.png" alt="">
+
+                </div>
+                <div class="post-reaction">
+                    <div class="activity-icons">
+                        <div><img src="images/like-blue.png" alt="">120</div>
+                        <div><img src="images/comments.png" alt="">52</div>
+                        <div><img src="images/share.png" alt="">35</div>
+                    </div>
+                    <div class="post-profile-picture">
+                        <img src="images/profile-pic.png " alt=""> <i class=" fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="status-field-container write-post-container">
+                <div class="user-profile-box">
+                    <div class="user-profile">
+                        <img src="images/profile-pic.png" alt="">
+                        <div>
+                            <p> Alex Carry</p>
+                            <small>August 13 1999, 09.18 pm</small>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+                    </div>
+                </div>
+                <div class="status-field">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolores praesentium dicta
+                        laborum nihil accusantium odit laboriosam, sed sit autem! <a
+                            href="#">#This_Post_is_faster!!!!</a> </p>
+                    <img src="images/feed-image-3.png" alt="">
+
+                </div>
+                <div class="post-reaction">
+                    <div class="activity-icons">
+                        <div><img src="images/like-blue.png" alt="">120</div>
+                        <div><img src="images/comments.png" alt="">52</div>
+                        <div><img src="images/share.png" alt="">35</div>
+                    </div>
+                    <div class="post-profile-picture">
+                        <img src="images/profile-pic.png " alt=""> <i class=" fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="status-field-container write-post-container">
+                <div class="user-profile-box">
+                    <div class="user-profile">
+                        <img src="images/profile-pic.png" alt="">
+                        <div>
+                            <p> Alex Carry</p>
+                            <small>August 13 1999, 09.18 pm</small>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+                    </div>
+                </div>
+                <div class="status-field">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolores praesentium dicta
+                        laborum nihil accusantium odit laboriosam, sed sit autem! <a
+                            href="#">#This_Post_is_perfect!!!!</a> </p>
+                    <img src="images/feed-image-4.png" alt="">
+
+                </div>
+                <div class="post-reaction">
+                    <div class="activity-icons">
+                        <div><img src="images/like-blue.png" alt="">120</div>
+                        <div><img src="images/comments.png" alt="">52</div>
+                        <div><img src="images/share.png" alt="">35</div>
+                    </div>
+                    <div class="post-profile-picture">
+                        <img src="images/profile-pic.png " alt=""> <i class=" fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn-LoadMore" onclick="LoadMoreToggle()">Load More</button>
+        </div>
+
+        <!-- sidebar------------ -->
+        <div class="right-sidebar">
+            <div class="advertisement">
+                <img src="images/advertisement.png" class="advertisement-image" alt="">
+            </div>
+
+            <div class="heading-link">
+                <h4>Conversation</h4>
+                <a href="">Hide Chat</a>
+            </div>
+
+            <div class="online-list">
+                <div class="online">
+                    <img src="images/member-1.png" alt="">
+                </div>
+                <p>Alison Mina</p>
+            </div>
+
+            <div class="online-list">
+                <div class="online">
+                    <img src="images/member-2.png" alt="">
+                </div>
+                <p>Jackson Aston</p>
+            </div>
+            <div class="online-list">
+                <div class="online">
+                    <img src="images/member-3.png" alt="">
+                </div>
+                <p>Samona Rose</p>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+        <p>&copy; Copyright 2021 - Socialbook All Rights Reserved</p>
+    </footer>
+
+    <script src="function.js"></script>
+</body>
+</html>
