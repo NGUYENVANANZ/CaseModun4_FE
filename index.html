@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <title>Socialbook - html css template</title>
     <script src="https://kit.fontawesome.com/ef7e2b893b.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -24,14 +26,14 @@
                 <input type="text" placeholder="Search">
             </div>
             <div class="profile-image online" onclick="UserSettingToggle()">
-                <img src="images/profile-pic.png" alt="">
+                <img src="images/profile-pic.png" alt="" id="account">
             </div>
 
         </div>
         <div class="user-settings">
             <div class="profile-darkButton">
             <div class="user-profile">
-                <img src="images/profile-pic.png" alt="">
+                <img src="images/profile-pic.png" alt="" id="account1">
                 <div>
                     <p> Alex Carry</p>
                     <a href="#">See your profile</a>
@@ -73,7 +75,7 @@
         <div class="content-area">
             <div class="write-post-container">
                 <div class="user-profile">
-                    <img src="images/profile-pic.png" alt="">
+                    <img src="images/profile-pic.png" alt="" id="account2">
                     <div>
                         <p> Alex Carry</p>
                         <small>Public <i class="fas fa-caret-down"></i></small>
@@ -251,5 +253,5 @@
     <script src="function.js"></script>
 </body>
 <script src="js/manh/login.js"></script>
-
+<script src="js/an/home.js"></script>
 </html>

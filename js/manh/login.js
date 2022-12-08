@@ -1,3 +1,6 @@
+
+let token = localStorage.getItem("token");
+
 function login() {
     let username = document.getElementById("username").value;
     let password = document.getElementById("input-password").value;
@@ -26,7 +29,6 @@ function login() {
         }
     })
     event.preventDefault();
-
 }
 
 function logout() {
