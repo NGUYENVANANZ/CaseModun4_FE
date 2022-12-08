@@ -17,12 +17,12 @@ function login() {
             // kiểu truyền đi
             'Content-Type': 'application/json'
         },
-        url: "http://localhost:8081/"+"login",
+        url: "http://localhost:8083/"+"login",
         data: JSON.stringify(Account),
         //xử lý khi thành công
         success: function (data) {
-            localStorage.setItem(token, data);
-            location.href = "index.html"
+            localStorage.setItem("token", data);
+            location.href = "profile.html"
         },
         error: function (err) {
             document.getElementById('messageLogin').innerHTML = "Login fail ! Try again please !";
