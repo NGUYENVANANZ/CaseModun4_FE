@@ -74,18 +74,17 @@
       <div class="row align-items-center justify-content-center vh-100">
         <img src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" class="w-50" align="center">
         <div class="col-md-5">
-
-
+          <div id="messageLogin" class="small-font text-uppercase text-center py-2 text-danger"></div>
           <form class="login-form" action="#">
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Email address or phone number"
+              <input type="text"  id="username" class="form-control" placeholder="Enter Name"
                 required>
             </div>
             <div class="mb-3">
-              <input type="password" class="form-control" placeholder="Password"
+              <input type="password"  id="input-password" class="form-control" placeholder="Enter PassWord"
                 required>
             </div>
-            <button type="button" class="btn btn-custom btn-lg btn-block mt-3">Login</button>
+            <button type="button" class="btn btn-custom btn-lg btn-block mt-3" onclick="login()">Login</button>
             <div class="text-center pt-3 pb-3">
               <a href="#" class="">Forgotten password?</a>
               <hr>
@@ -149,5 +148,7 @@
       </div>
 
   </body>
+  <script src="js/manh/login.js"></script>
+
 </html>
 
