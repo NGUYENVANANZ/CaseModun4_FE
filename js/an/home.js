@@ -51,9 +51,8 @@ function showPage() {
         </div>
         <div class="post-reaction">
             <div class="activity-icons">
-                <div><img src="images/like-blue.png" alt="">120</div>
-                <div><img src="images/comments.png" alt="">52</div>
-                <div><img src="images/share.png" alt="">35</div>
+                <div><img src="images/like-blue.png" alt="">${data[i].likePages.length}</div>
+                <div><img src="images/comments.png" alt="">${data[i].cmts.length}</div>
             </div>
             <div class="post-profile-picture">
                 <img src="images/profile-pic.png " alt=""> <i class=" fas fa-caret-down"></i>
