@@ -1,7 +1,8 @@
 function accountImg() {
     $.ajax({
         type: "Post",
-        url: "http://localhost:8081/home/" + token,
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        url: "http://localhost:8081/home",
         success: function (data) {
             let str = data.img;
             let std = data.fullName;
@@ -25,7 +26,8 @@ accountImg();
 function showPage() {
     $.ajax({
         type: "Get",
-        url: "http://localhost:8081/page/" + token,
+        url: "http://localhost:8081/page",
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
             for (let i = 0; i < data.length; i++){
