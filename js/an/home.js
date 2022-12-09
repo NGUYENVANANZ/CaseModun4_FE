@@ -13,7 +13,6 @@ function accountImg() {
             document.getElementById("nameAccount1").innerHTML = std;
 
 
-
         },
         error: function (error) {
             console.log(error);
@@ -30,8 +29,8 @@ function showPage() {
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
-            for (let i = 0; i < data.length; i++){
-str += `
+            for (let i = 0; i < data.length; i++) {
+                str += `
     <div class="status-field-container write-post-container">
         <div class="user-profile-box">
             <div class="user-profile">
@@ -75,3 +74,32 @@ str += `
 }
 
 showPage();
+
+function showFriend() {
+    $.ajax({
+        type: "Get",
+        url: "http://localhost:8081/friends",
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        success: function (data) {
+            let str = "";
+            for (let i = 0; i < data.length; i++) {
+                str += `
+    <div class="online-list">
+                <div class="online">
+                    <img src="${data[i].img}" alt="">
+                </div>
+                <p>${data[i].fullName}</p>
+            </div>
+`
+                document.getElementById("friendList").innerHTML = str;
+            }
+
+
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+showFriend();
