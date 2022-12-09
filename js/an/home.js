@@ -1,7 +1,8 @@
 function accountImg() {
     $.ajax({
         type: "Post",
-        url: "http://localhost:8081/home/" + token,
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        url: "http://localhost:8081/home",
         success: function (data) {
             let str = data.img;
             let std = data.fullName;
@@ -25,6 +26,7 @@ accountImg();
 function showPage() {
     $.ajax({
         type: "Get",
+
         url: "http://localhost:8081/page/" + token,
         success: function (data) {
             let str = "";
@@ -50,9 +52,14 @@ str += `
         </div>
         <div class="post-reaction">
             <div class="activity-icons">
+
                 <div><img src="images/like-blue.png" alt="">120</div>
                 <div><img src="images/comments.png" alt="">52</div>
                 <div><img src="images/share.png" alt="">35</div>
+
+                <div><img src="images/like-blue.png" alt="">${data[i].likePages.length}</div>
+                <div><img src="images/comments.png" alt="">${data[i].cmts.length}</div>
+
             </div>
             <div class="post-profile-picture">
                 <img src="images/profile-pic.png " alt=""> <i class=" fas fa-caret-down"></i>
@@ -72,4 +79,37 @@ str += `
     });
 }
 
+
 showPage();
+
+
+
+function showFriend() {
+    $.ajax({
+        type: "Get",
+        url: "http://localhost:8081/friends",
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        success: function (data) {
+            let str = "";
+            for (let i = 0; i < data.length; i++) {
+                str += `
+    <div class="online-list">
+                <div class="online">
+                    <img src="${data[i].img}" alt="">
+                </div>
+                <p>${data[i].fullName}</p>
+            </div>
+`
+                document.getElementById("friendList").innerHTML = str;
+            }
+
+
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+showFriend();
+

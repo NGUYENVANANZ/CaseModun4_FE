@@ -1,5 +1,5 @@
 
-let token= localStorage.getItem("token");
+
 
 function login() {
     let username = document.getElementById("username").value;
@@ -22,7 +22,11 @@ function login() {
         //xử lý khi thành công
         success: function (data) {
             localStorage.setItem("token", data);
+<<<<<<< HEAD
             location.href = "profile.html"
+=======
+            location.href = "index.html"
+>>>>>>> c207908a4ffb962641361b4f0e4f29b8b37dc11a
         },
         error: function (err) {
             document.getElementById('messageLogin').innerHTML = "Login fail ! Try again please !";
