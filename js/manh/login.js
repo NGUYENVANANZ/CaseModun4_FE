@@ -21,7 +21,7 @@ function login() {
         data: JSON.stringify(Account),
         //xử lý khi thành công
         success: function (data) {
-            localStorage.setItem(token, data);
+            localStorage.setItem("token", data);
             location.href = "index.html"
         },
         error: function (err) {
