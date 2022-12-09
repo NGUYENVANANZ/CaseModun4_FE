@@ -26,7 +26,6 @@ accountImg();
 function showPage() {
     $.ajax({
         type: "Get",
-
         url: "http://localhost:8081/page/" + token,
         success: function (data) {
             let str = "";
