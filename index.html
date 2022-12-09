@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Socialbook - html css template</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="https://kit.fontawesome.com/ef7e2b893b.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
@@ -16,7 +22,7 @@
     <nav class="navbar">
         <div class="nav-left"><img class="logo" src="images/logo.png" alt="">
             <ul class="navlogo">
-                <li><img src="images/notification.png"></li>
+                <li><a type="button" data-toggle="modal" data-target="#myModal" ><img src="images/notification.png"></a></button></li>
             </ul>
         </div>
         <div class="nav-right">
@@ -62,9 +68,8 @@
     <div class="container1">
         <div class="left-sidebar">
             <div class="important-links">
-                <a href="#"><img src="images/news.png" alt="">Latest News</a>
+                <a href="#"><img src="images/news.png" alt="">Trang Chủ</a>
                 <a href="#"><img src="images/friends.png" alt="">Friends</a>
-                <a href="#"><img src="images/group.png" alt="">Groups</a>
             </div>
 
 
@@ -78,21 +83,19 @@
                     <img src="images/profile-pic.png" alt="" id="imgAccount2">
                     <div>
                         <p id="nameAccount"></p>
-                        <small>Public <i class="fas fa-caret-down"></i></small>
+                        <small><select class="fas fa-caret-down" id="status"></select></small>
                     </div>
                 </div>
 
                 <div class="post-upload-textarea">
-                    <button name="" placeholder="" id="" cols="30" rows="3">What's on your mind, Alex?</button>
+                    <input name="" placeholder="" id="What's on your mind, Alex?" cols="30" rows="3">
+
                 </div>
             </div>
 
 <div id="page">
 
 </div>
-
-
-
             <button type="button" class="btn-LoadMore" onclick="LoadMoreToggle()">Load More</button>
         </div>
 
@@ -112,9 +115,38 @@
 
         </div>
     </div>
+
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Notification</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" id="notification">
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <footer id="footer">
         <p>&copy; Copyright 2021 - Socialbook All Rights Reserved</p>
     </footer>
+
+
+
 
     <script src="function.js"></script>
 </body>
