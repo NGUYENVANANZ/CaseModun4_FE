@@ -25,7 +25,7 @@ accountImg();
 function showPage() {
     $.ajax({
         type: "Get",
-        url: "http://localhost:8081/page",
+        url: "http://localhost:8081/search",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
