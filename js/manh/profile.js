@@ -5,7 +5,7 @@ function showProfile() {
     $.ajax({
         type: "GET",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
-        url: "http://localhost:8081/profiles/profile",
+        url: "http://localhost:8080/profiles/profile",
         success: function (data) {
             let str = data.img;
             let std = data.fullName;
@@ -27,7 +27,7 @@ function showProfile() {
 function showPage() {
     $.ajax({
         type: "Get",
-        url: "http://localhost:8081/profiles/pageProfile",
+        url: "http://localhost:8080/profiles/pageProfile",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
@@ -80,7 +80,7 @@ showPage();
 function showFriend() {
     $.ajax({
         type: "Get",
-        url: "http://localhost:8081/friends",
+        url: "http://localhost:8080/friends",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";

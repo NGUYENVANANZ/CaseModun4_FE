@@ -39,7 +39,7 @@ function pageStatus() {
                 `
             }
 
-            document.getElementById("status").innerHTML = str;
+            // document.getElementById("status").innerHTML = str;
 
 
         },
