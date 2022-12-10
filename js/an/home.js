@@ -4,7 +4,7 @@ function accountImg() {
     $.ajax({
         type: "Post",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
-        url: "http://localhost:8081/home",
+        url: "http://localhost:8080/home",
         success: function (data) {
             let str = data.img;
             let std = data.fullName;
@@ -24,11 +24,13 @@ function accountImg() {
     });
 }
 
+accountImg();
+
 function pageStatus() {
     $.ajax({
         type: "Get",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
-        url: "http://localhost:8081/pageStatus",
+        url: "http://localhost:8080/pageStatus",
         success: function (data) {
             let str = "";
             for (let i = 0; i < data.length; i++) {
@@ -47,13 +49,12 @@ function pageStatus() {
     });
 }
 
-accountImg();
 pageStatus();
 
 function showPage() {
     $.ajax({
         type: "Get",
-        url: "http://localhost:8081/page",
+        url: "http://localhost:8080/page",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
@@ -115,7 +116,7 @@ showPage();
 function showFriend() {
     $.ajax({
         type: "Get",
-        url: "http://localhost:8081/friends",
+        url: "http://localhost:8080/friends",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
@@ -125,7 +126,7 @@ function showFriend() {
                 <div class="online">
                     <img src="${data[i].img}" alt="">
                 </div>
-                <p>${data[i].fullName}</p>
+                <a href="profileuser.html" onclick="pageFriend(${data[i].id})">${data[i].fullName}</a>
             </div>
 `
                 document.getElementById("friendList").innerHTML = str;
@@ -145,7 +146,7 @@ showFriend();
 function Notification() {
     $.ajax({
         type: "Get",
-        url: "http://localhost:8081/notifications",
+        url: "http://localhost:8080/notifications",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
