@@ -598,7 +598,7 @@ img.coverImage {
 
 .dashboard {
     padding: 15px;
-    background: var(--bg-color);
+    background-image: url("https://bienthuy.com/bienthuy-img/2020/02/hinh-nen-girl-xinh-4k-cho-laptop22-scaled.jpg") ;
     justify-content: space-between;
     display: flex;
     border-radius: 5px;
