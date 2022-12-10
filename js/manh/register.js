@@ -43,11 +43,39 @@ function register() {
 }
 
 
-function checkPassWord() {
-    let passWord = document.getElementById("Password").value;
-    let confirmPassword = document.getElementById("RePassword").value;
-    if (passWord!=confirmPassword){
-        document.getElementById("register-err1").innerHTML = `  
-  <p style="filter: brightness(120%)" id="messageFailed" class="small-font text-uppercase text-center py-2 text-danger bg-danger-light2 ">"Passwords do not match!</p>`
+function checkUser() {
+    let userName = document.getElementById("Email").value;
+    $.ajax({
+        type: "GET",
+        headers: {
+            //kiểu dữ liệu nhận về
+            // 'Accept': 'application/json',
+            // kiểu truyền đi
+            'Content-Type': 'application/json'
+        },
+        url: "http://localhost:8080/registers/checkUsername",
+        data: {
+            userName : userName,
+        },
+        success: function (data) {
+            document.getElementById("register-err").innerHTML = ""
+        },
+        error() {
+            document.getElementById("register-err").innerHTML = `  <p style="color: red">Account already exists!</p>`
+        }
+    })
+}
+
+function checkPass(){
+    let pass = document.getElementById("Password").value
+    let repass = document.getElementById("RePassword").value
+
+    if (repass == pass){
+        document.getElementById("pass-err").innerHTML=" "
+    }else {
+        document.getElementById("pass-err").innerHTML = `<p style="color: red">Password does not match!</p>`
+    }
+    if (repass ==""){
+        document.getElementById("pass-err").innerHTML=""
     }
 }

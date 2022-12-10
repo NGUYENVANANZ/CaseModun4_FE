@@ -107,7 +107,7 @@
               <form>
                 <div class="mb-3">
                   <label for="Email" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" >
+                  <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" oninput="checkUser()" >
                   <div id="register-err" class="form-text"></div>
                 </div>
                 <div class="mb-3">
@@ -116,8 +116,8 @@
                 </div>
                 <div class="mb-3">
                   <label for="RePassword" class="form-label">Re Pass</label>
-                  <input type="password" class="form-control" id="RePassword" >
-                  <div id="register-err1" class="form-text"></div>
+                  <input type="password" class="form-control" id="RePassword" oninput="checkPass()" >
+                  <div id="pass-err" class="form-text"></div>
                 </div>
                 <div class="mb-3">
                 <label for="PhoneNumber" class="form-label">PhoneNumber</label>
