@@ -16,6 +16,30 @@ function accountImg() {
             document.getElementById("nameAccount1").innerHTML = std;
 
 
+
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function pageStatus() {
+    $.ajax({
+        type: "Get",
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        url: "http://localhost:8081/pageStatus",
+        success: function (data) {
+            let str = "";
+            for (let i = 0; i < data.length; i++) {
+                str += `
+                <option value="${data[i].id}">${data[i].pageStatus}</option>
+                `
+            }
+
+            document.getElementById("status").innerHTML = str;
+
+
         },
         error: function (error) {
             console.log(error);
@@ -24,6 +48,7 @@ function accountImg() {
 }
 
 accountImg();
+pageStatus();
 
 function showPage() {
     $.ajax({
@@ -55,7 +80,6 @@ function showPage() {
         <div class="status-field">
             <p>${data[i].text} </p>
             <img src="${data[i].img}" alt="">
-
         </div>
         <div class="post-reaction">
             <div class="activity-icons">
@@ -93,6 +117,7 @@ function checkLike(post, id) {
 
 showPage();
 
+
 function showFriend() {
     $.ajax({
         type: "Get",
@@ -121,3 +146,64 @@ function showFriend() {
 }
 
 showFriend();
+
+
+function Notification() {
+    $.ajax({
+        type: "Get",
+        url: "http://localhost:8081/notifications",
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        success: function (data) {
+            let str = "";
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].notificationType.id == 1) {
+                    str += `
+<div class="online-list">
+                <div class="online">
+                    <a href=""><img src="${data[i].account1.img}" alt=""></a>
+                </div>
+                <a href=""> ${data[i].account1.fullName} </a>
+                <a href="" style="color: black; margin-left: 5px"> đã comment bài viết của bạn</a>
+            </div>         
+`
+                } else if (data[i].notificationType.id == 2) {
+                    str += `<div class="online-list">
+                <div class="online">
+                    <a href=""><img src="${data[i].account1.img}" alt=""></a>
+                </div>
+                <a href=""> ${data[i].account1.fullName} </a>
+                <a href="" style="color: black; margin-left: 5px"> đã like một bài viết của bạn</a>
+            </div>`
+                } else {
+                    str += `
+    <div class="online-list">
+                <div class="online">
+                    <a href=""><img src="${data[i].account1.img}" alt=""></a>
+                
+                </div>
+                <div>
+                <a href=""> ${data[i].account1.fullName} </a>
+                <a href="" style="color: black; margin-left: 5px"> đã gửi lời mời kết bạn</a>
+                <div style="margin-left: 200px">
+               <button style="background-color: dodgerblue">Chấp Nhận</button>
+               <button>Từ chối</button>
+</div>
+</div>
+            </div>
+`
+                }
+                document.getElementById("notification").innerHTML = str;
+            }
+
+
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+Notification();
+
+
+
