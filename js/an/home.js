@@ -56,11 +56,6 @@ function showPage() {
         url: "http://localhost:8081/page",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
-            console.log("data")
-            console.log(data)
-            console.log(data)
-            console.log(data)
-            console.log(data)
             let str = "";
             for (let i = 0; i < data.length; i++) {
                 str += `
@@ -83,7 +78,7 @@ function showPage() {
         </div>
         <div class="post-reaction">
             <div class="activity-icons">
-                <div><a onclick="like(${data[i].id}, ${i}, ${data[i].likePages.length})" ><img src="images/like.png" alt="" id="${i}" ></a><p id="${data[i].id}">${data[i].likePages.length}</p></div>
+                <div><a onclick="like(${data[i].id}, ${i})" ><img src="images/like.png" alt="" id="${i}" ></a><p id="${i}p">${data[i].likePages.length}</p></div>
                 <div><img src="images/comments.png" alt="">${data[i].cmts.length}</div>
             </div>
             <div class="post-profile-picture">
@@ -98,7 +93,6 @@ function showPage() {
             for (let i = 0; i < data.length; i++) {
                 checkLike(data[i], i);
             }
-
         },
         error: function (error) {
             console.log(error);
