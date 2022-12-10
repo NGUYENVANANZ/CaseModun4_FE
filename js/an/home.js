@@ -1,3 +1,5 @@
+var Name;
+
 function accountImg() {
     $.ajax({
         type: "Post",
@@ -6,6 +8,7 @@ function accountImg() {
         success: function (data) {
             let str = data.img;
             let std = data.fullName;
+            Name = data.fullName;
             document.getElementById("imgAccount").src = str;
             document.getElementById("imgAccount1").src = str;
             document.getElementById("imgAccount2").src = str;
@@ -53,6 +56,11 @@ function showPage() {
         url: "http://localhost:8081/page",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
+            console.log("data")
+            console.log(data)
+            console.log(data)
+            console.log(data)
+            console.log(data)
             let str = "";
             for (let i = 0; i < data.length; i++) {
                 str += `
@@ -75,7 +83,7 @@ function showPage() {
         </div>
         <div class="post-reaction">
             <div class="activity-icons">
-                <div><img src="images/like-blue.png" alt="">${data[i].likePages.length}</div>
+                <div><a onclick="like(${data[i].id}, ${i}, ${data[i].likePages.length})" ><img src="images/like.png" alt="" id="${i}" ></a><p id="${data[i].id}">${data[i].likePages.length}</p></div>
                 <div><img src="images/comments.png" alt="">${data[i].cmts.length}</div>
             </div>
             <div class="post-profile-picture">
@@ -84,9 +92,12 @@ function showPage() {
         </div>
     </div>
 `
-                document.getElementById("page").innerHTML = str;
             }
+            document.getElementById("page").innerHTML = str;
 
+            for (let i = 0; i < data.length; i++) {
+                checkLike(data[i], i);
+            }
 
         },
         error: function (error) {
@@ -94,6 +105,15 @@ function showPage() {
         }
     });
 }
+
+function checkLike(post, id) {
+    for (let j = 0; j < post.likePages.length; j++) {
+        if (post.likePages[j].accounts.fullName == Name) {
+            document.getElementById(id).src = "images/like-blue.png";
+        }
+    }
+}
+
 
 showPage();
 
