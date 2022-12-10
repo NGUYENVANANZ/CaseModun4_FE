@@ -3,6 +3,13 @@
 
 <head>
 
+        <div class="triangle_rose"></div>
+
+
+    <meta name="description" content="Table Responsive" />
+    <meta name="keywords" content="table, responsive" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +24,6 @@
 
     <script src="https://kit.fontawesome.com/ef7e2b893b.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="js/linh/search.css">
 
 
 </head>
@@ -276,9 +282,12 @@
         </div>
         <div class="nav-right">
             <div class="search-box">
-
-                <img src="images/search.png" alt="">
-                <input type="text" id="search" oninput="search()" placeholder="Search">
+                <ul>
+                    <li>
+                        <input type="text" id="search" oninput="search()" placeholder="Search">
+                        <a onclick="search()" type="button" data-toggle="modal" data-target="#myModal1" >
+                        <img  src="images/search.png" ></a>
+                </ul>
             </div>
 
 
@@ -429,26 +438,41 @@
     </div>
 
 
-<br>
-    <h2>List Account</h2>
+    <!-- The Modal -->
+    <div class="modal" id="myModal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-    <table class="content-table" style="width: 100%" >
-        <thead>
-        <tr>
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">List User</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
 
-            <th>Name</th>
-            <th>Img</th>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="container mt-3">
+                        <table class="container">
 
-        </tr>
-        </thead>
-        <tbody id="showSearch" >
+                            <tbody id="showSearch">
 
-        </tbody>
-    </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
 
-    <footer id="footer">
+    <footer id="footer" >
         <p>&copy; Copyright 2021 - Socialbook All Rights Reserved</p>
     </footer>
 
