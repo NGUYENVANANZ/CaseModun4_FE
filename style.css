@@ -110,7 +110,7 @@ ul.navlogo li img {
     background: #41db51
 }
 
-.container {
+.container1 {
     display: flex;
     justify-content: space-between;
     padding: 13px 5%;
@@ -641,7 +641,7 @@ img.coverImage {
     flex-direction: column;
 }
 
-.container.content-profile-container {
+.container1.content-profile-container {
     padding: 25px 0px;
 }
 
