@@ -11,6 +11,7 @@ function showProfile() {
             let std = data.fullName;
             document.getElementById("account-img").src= str;
             document.getElementById("account-img2").src= str;
+            document.getElementById("account-img1").src= str;
             document.getElementById("account-img3").src= str;
             document.getElementById("name-user").innerHTML= data.fullName;
             document.getElementById("name-user1").innerHTML= data.fullName;
