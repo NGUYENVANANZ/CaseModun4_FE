@@ -38,7 +38,8 @@ function showPage() {
             <div class="user-profile">
                 <img src="${data[i].account.img}" alt="">
                 <div>
-                    <p>${data[i].account.fullName}</p>
+                    <a onclick="pageFriend(${data[i].account.id})">${data[i].account.fullName}</a>
+                    <br>
                     <small>${data[i].time}</small>
                 </div>
             </div>
