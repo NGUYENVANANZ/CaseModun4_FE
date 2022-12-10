@@ -21,7 +21,252 @@
 
 
 </head>
+<style>
+    .imgprofile {
+        border-radius: 50%;
+        overflow: hidden;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+    .central-meta {
+        background: #fff none repeat scroll 0 0;
+        border: 1px solid #ede9e9;
+        border-radius: 5px;
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 20px;
+        position: relative;
+    }
 
+    .central-meta.padding30 {
+        padding: 30px;
+    }
+    .central-meta{padding: 15px;}
+    .create-post::before
+    .create-post {
+        border-bottom: 1px solid #e6ecf5;
+        display: block;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 15px;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        text-transform: capitalize;
+        width: 100%;
+        color: #515365;
+        position: relative;
+    }
+    .create-post::before {
+        content: "";
+        height: 90%;
+        left: -20px;
+        position: absolute;
+        top: -5px;
+        width: 3px;
+    }
+    .create-post > i {
+        font-size: 20px;
+        vertical-align: sub;
+    }
+    .create-post > a {
+        display: inline-block;
+        float: right;
+        font-size: 11px;
+        font-weight: normal;
+    }
+
+    .create-post::before {
+        content: "";
+        height: 90%;
+        left: -20px;
+        position: absolute;
+        top: -5px;
+        width: 3px;
+    }
+    .create-post > i {
+        font-size: 20px;
+        vertical-align: sub;
+    }
+    .create-post > a {
+        display: inline-block;
+        float: right;
+        font-size: 11px;
+        font-weight: normal;
+    }
+    .new-postbox {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .new-postbox > figure {
+        display: inline-block;
+        margin-bottom: 0;
+        vertical-align: top;
+    }
+
+
+    .newpst-input {
+        display: inline-block;
+        vertical-align: top;
+        width: 90%;
+    }
+
+    .newpst-input > form {
+        display: inline-block;
+        width: 100%;
+    }
+    .newpst-input textarea {
+        float: left;
+        width: 100%;
+        border: none;
+    }
+    .newpst-input textarea:focus,
+    .newpst-input textarea:active {
+        outline: medium none;
+        border: none;
+    }
+    .newpst-input {
+        width: 82%;
+    }
+    .newpst-input {
+        width: 80%;
+    }
+    .newpst-input textarea {
+        font-size: 13px;
+    }
+    .newpst-input {
+        width: 85%;
+    }
+    .attachments {
+        display: block;
+        text-align: left;
+        background: #fff;
+    }
+
+    .attachments > ul {
+        list-style: outside none none;
+        margin-bottom: 0;
+        padding-left: 0;
+        line-height: initial;
+    }
+
+    .attachments li {
+        display: inline-block;
+        margin-left: 10px;
+        vertical-align: middle;
+        font-size: 16px;
+        line-height: 0;
+    }
+    .attachments li:first-child{
+        margin-left: 0;
+    }
+
+    .attachments li.preview-btn {
+        float: right;
+    }
+    .attachments li.preview-btn button {
+        background: #fff none repeat scroll 0 0;
+        border: 1px solid;
+        border-radius: 30px;
+        color: inherit;
+        font-size: 12px;
+        font-weight: 500;
+        padding: 12px 10px;
+        transition: all 0.2s linear 0s;
+    }
+    .attachments li.preview-btn button:hover {
+        color: #fff;
+    }
+    .attachments > ul .add-loc {
+        cursor: pointer;
+        display: block;
+        font-size: 20px;
+        margin-top: -5px;
+    }
+    .fileContainer {
+        display: inline-block;
+        font-size: 14px;
+        position: relative;
+        text-align: center;
+        text-transform: capitalize;
+    }
+    .attach-file .fileContainer {
+        background: #23d2e2;
+        border-radius: 100%;
+        color: #fff;
+        display: inline-block;
+        font-size: 14px;
+        height: 30px;
+        line-height: 30px;
+        margin: 0;
+        position: relative;
+        text-align: center;
+        text-transform: capitalize;
+        width: 30px;
+    }
+
+    .fileContainer [type=file] {
+        cursor: pointer;
+        display: block;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        position: absolute;
+        right: 0px;
+        text-align: right;
+        top: 0;
+        width: 100%;
+        overflow: hidden;
+    }
+    .uploadimage {
+        display: inline-block;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+
+    .uploadimage .fileContainer [type="file"] {
+        left: -22px;
+        top: -10px;
+        width: 20px;
+    }
+    .uploadimage > i {
+        font-size: 16px;
+        position: relative;
+        top: 1px;
+    }
+
+    .user-avatar .edit-phto {
+        border-radius: 0;
+        bottom: -40px;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+        width: 100%;
+        transition: all 0.3s linear 0s;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .user-avatar:hover .edit-phto {
+        bottom: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+    .new-postbox .post-btn:hover,
+    .new-postbox .post-btn {
+        background: #23d2e2 none repeat scroll 0 0;
+        border: medium none;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: 500;
+        margin-top: 11px;
+        padding: 5px;
+        width: 100%;
+        transition: all 0.2s linear 0s;
+    }
+
+</style>
 <body>
     <nav class="navbar">
         <div class="nav-left"><img class="logo" src="images/logo.png" alt="">
@@ -49,7 +294,7 @@
                 <img src="images/profile-pic.png" alt="" id="imgAccount1">
                 <div>
                     <p id="nameAccount1"></p>
-                    <a href="#">See your profile</a>
+                    <a href="profile.html">See your profile</a>
                 </div>
             </div>
             <div id="dark-button" onclick="darkModeON()">
@@ -86,18 +331,53 @@
 
         <div class="content-area">
             <div class="write-post-container">
-                <div class="user-profile">
-                    <img src="images/profile-pic.png" alt="" id="imgAccount2">
-                    <div>
-                        <p id="nameAccount"></p>
-                        <small><select class="fas fa-caret-down" id="status"></select></small>
+                <div class="central-meta postbox">
+                    <span class="create-post"  ><h5>Create post</h5></span>
+                    <div class="new-postbox" style="margin-top: 5px">
+                        <figure>
+                            <img class="imgprofile" id="imgAccount2" alt="">
+                        </figure>
+                        <div class="newpst-input">
+                            <form method="post">
+                                <textarea rows="2" placeholder="Share some what you are thinking?"></textarea>
+                            </form>
+                        </div>
+                        <div class="attachments">
+                            <ul>
+
+                                <li>
+                                    <i class="fa fa-music"></i>
+                                    <label class="fileContainer">
+                                        <input type="file">
+                                    </label>
+                                </li>
+                                <li>
+                                    <i class="fa fa-image"></i>
+                                    <label class="fileContainer">
+                                        <input type="file">
+                                    </label>
+                                </li>
+                                <li>
+                                    <i class="fa fa-video-camera"></i>
+                                    <label class="fileContainer">
+                                        <input type="file">
+                                    </label>
+                                </li>
+                                <li>
+                                    <i class="fa fa-camera"></i>
+                                    <label class="fileContainer">
+                                        <input type="file">
+                                    </label>
+                                </li>
+<!--                                <li class="preview-btn">-->
+<!--                                    <button class="post-btn-preview" type="submit" data-ripple="">Preview</button>-->
+<!--                                </li>-->
+                            </ul>
+                            <button class="post-btn" type="submit" data-ripple="">Post</button>
+                        </div>
                     </div>
-                </div>
+                </div><!-- add post new box -->
 
-                <div class="post-upload-textarea">
-                    <input name="" placeholder="" id="What's on your mind, Alex?" cols="30" rows="3">
-
-                </div>
             </div>
 
 <div id="page">
@@ -182,3 +462,8 @@
 <script src="js/linh/search.js"></script>
 
 </html>
+
+<script src="js/dinh/Like.js"></script>
+
+</html>
+
