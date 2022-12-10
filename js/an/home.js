@@ -125,7 +125,7 @@ function showFriend() {
                 <div class="online">
                     <img src="${data[i].img}" alt="">
                 </div>
-                <p>${data[i].fullName}</p>
+                <a style="color: black" href="profileuser.html"">${data[i].fullName}</a>
             </div>
 `
                 document.getElementById("friendList").innerHTML = str;

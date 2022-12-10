@@ -29,7 +29,7 @@ function register() {
             // kiểu truyền đi
             'Content-Type': 'application/json'
         },
-        url: "http://localhost:8080/registers/register",
+        url: "http://localhost:8081/registers/register",
         data: JSON.stringify(account),
         success: function (data) {
             alert("Dang ki thanh cong")
