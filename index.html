@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +17,8 @@
 
     <script src="https://kit.fontawesome.com/ef7e2b893b.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="js/linh/search.css">
+
 
 </head>
 <style>
@@ -274,8 +278,11 @@
             <div class="search-box">
 
                 <img src="images/search.png" alt="">
-                <input type="text" placeholder="Search">
+                <input type="text" id="search" oninput="search()" placeholder="Search">
             </div>
+
+
+
             <div class="profile-image online" onclick="UserSettingToggle()">
                 <img src="images/profile-pic.png" alt="" id="imgAccount">
             </div>
@@ -421,6 +428,26 @@
         </div>
     </div>
 
+
+<br>
+    <h2>List Account</h2>
+
+    <table class="content-table" style="width: 100%" >
+        <thead>
+        <tr>
+
+            <th>Name</th>
+            <th>Img</th>
+
+        </tr>
+        </thead>
+        <tbody id="showSearch" >
+
+        </tbody>
+    </table>
+
+
+
     <footer id="footer">
         <p>&copy; Copyright 2021 - Socialbook All Rights Reserved</p>
     </footer>
@@ -432,9 +459,11 @@
 </body>
 <script src="js/manh/login.js"></script>
 <script src="js/an/home.js"></script>
-<<<<<<< HEAD
+<script src="js/linh/search.js"></script>
+
+</html>
+
 <script src="js/dinh/Like.js"></script>
 
 </html>
-=======
->>>>>>> 1e577b64d6f47d4a9f196e828959665c4514f9ac
+
