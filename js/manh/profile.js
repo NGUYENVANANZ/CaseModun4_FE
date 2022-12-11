@@ -18,9 +18,6 @@ function showProfile() {
             document.getElementById("name-user2").innerHTML= data.fullName;
             document.getElementById("name-user").innerHTML= std;
             document.getElementById("name-user1").innerHTML= std;
-
-
-
         },
         error: function (error) {
             console.log(error);
@@ -115,4 +112,26 @@ function showFriend() {
 
 showFriend();
 
+function pageStatus() {
+    $.ajax({
+        type: "Get",
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        url: "http://localhost:8080/pageStatus",
+        success: function (data) {
+            let str = "";
+            for (let i = 0; i < data.length; i++) {
+                str += `
+                <option value="${data[i].id}">${data[i].pageStatus}</option>
+                `
+            }
 
+            document.getElementById("status-profile").innerHTML = str;
+
+
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+pageStatus();
