@@ -1,36 +1,30 @@
-showProfile();
+let idFriend = localStorage.getItem("idFriend");
 
-// show profile
-function showProfile() {
+
+function profileUser(id) {
     $.ajax({
-        type: "GET",
+        type: "Get",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
-        url: "http://localhost:8080/profiles/profile",
+        url: "http://localhost:8080/profile/" + id,
         success: function (data) {
             let str = data.img;
             let std = data.fullName;
-            document.getElementById("account-img").src= str;
-            document.getElementById("account-img2").src= str;
-            document.getElementById("account-img1").src= str;
-            document.getElementById("account-img3").src= str;
-            document.getElementById("name-user").innerHTML= data.fullName;
-            document.getElementById("name-user1").innerHTML= data.fullName;
-            document.getElementById("name-user2").innerHTML= data.fullName;
-            document.getElementById("name-user").innerHTML= std;
-            document.getElementById("name-user1").innerHTML= std;
-
-
-
+            document.getElementById("imgFriend").src = str;
+            document.getElementById("friendName").innerHTML = std;
         },
         error: function (error) {
             console.log(error);
         }
-    });
+
+    })
 }
-function showPage() {
+
+profileUser(idFriend);
+
+function profilePost(id) {
     $.ajax({
         type: "Get",
-        url: "http://localhost:8080/profiles/pageProfile",
+        url: "http://localhost:8080/page/" + id,
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
@@ -66,8 +60,7 @@ function showPage() {
     </div>
 `
             }
-            document.getElementById("page").innerHTML = str;
-
+            document.getElementById("paged").innerHTML = str;
             for (let i = 0; i < data.length; i++) {
                 checkLike(data[i], i);
             }
@@ -78,17 +71,17 @@ function showPage() {
     });
 }
 
-showPage();
 
+profilePost(idFriend);
 
-function showFriend() {
+function profileFriend(id) {
     $.ajax({
         type: "Get",
-        url: "http://localhost:8080/friends",
+        url: "http://localhost:8080/friends/" + id,
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
-            let demFriend =0;
+            let demFriend = 0;
             for (let i = 0; i < data.length; i++) {
                 str += `
                         <div class="first-friend">
@@ -97,15 +90,38 @@ function showFriend() {
                      
                         </div>`
                 demFriend += 1;
-                document.getElementById("listfriend").innerHTML = str;
-                document.getElementById("iconfriend1").src= data[0].img;
-                document.getElementById("iconfriend2").src= data[1].img;
-                document.getElementById("iconfriend3").src= data[2].img;
+                document.getElementById("listfriends").innerHTML = str;
+                document.getElementById("iconfriend1d").src = data[0].img;
+                document.getElementById("iconfriend2d").src = data[1].img;
+                document.getElementById("iconfriend3d").src = data[2].img;
 
             }
-            document.getElementById("demfriend").innerHTML = demFriend + " Friends";
+            document.getElementById("demfriends").innerHTML = demFriend + " Friends";
 
 
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    })
+}
+
+profileFriend(idFriend);
+
+function checkFriend(idFriend) {
+    $.ajax({
+        type: "Get",
+        url: "http://localhost:8080/checkFriends/" + idFriend,
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        success: function (data) {
+            let str = `<button type="button" style="background-color: #1876f2" onclick="addFriend(idFriend)"><p>Friends</p></button>`
+            if (data.id == 1) {
+                str = `<button style="background-color: #1876f2">Friend</button><button onclick="unfriend(idFriend)" style="background-color: #9a9a9a">UnFriend</button>`
+            }
+            if (data.id == 2) {
+                str = `<p>-> Sent friend request</p><button onclick="unfriend(idFriend)" style="background-color: #9a9a9a">X cancel friend request</button>`
+            }
+            document.getElementById("friendStatus").innerHTML = str;
         },
         error: function (error) {
             console.log(error);
@@ -113,6 +129,7 @@ function showFriend() {
     });
 }
 
-showFriend();
+checkFriend(idFriend);
+
 
 

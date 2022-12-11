@@ -20,6 +20,23 @@ $.ajax ({
 })
 }
 
+function pageFriend(id){
+    localStorage.setItem("idFriend", id);
+    location.href = "profileuser.html"
+}
+
+function checkPage(id){
+    let idUser = localStorage.getItem("idUser");
+    if (idUser == id){
+        location.href = "profile.html"
+    }else {
+        localStorage.setItem("idFriend", id);
+        location.href = "profileuser.html"
+    }
+}
+
+
+
 
 
 
