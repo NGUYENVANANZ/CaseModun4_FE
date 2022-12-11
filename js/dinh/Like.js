@@ -1,7 +1,7 @@
 function like(id, i){
 $.ajax ({
     type: "Post",
-    url: "http://localhost:8081/page/" + id,
+    url: "http://localhost:8080/page/" + id,
     headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
     success: function (data){
         let id = i + "p"

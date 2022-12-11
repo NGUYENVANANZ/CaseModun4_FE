@@ -4,7 +4,7 @@ function accountImg() {
     $.ajax({
         type: "Post",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
-        url: "http://localhost:8081/home",
+        url: "http://localhost:8080/home",
         success: function (data) {
             let str = data.img;
             let std = data.fullName;
@@ -28,7 +28,7 @@ function pageStatus() {
     $.ajax({
         type: "Get",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
-        url: "http://localhost:8081/pageStatus",
+        url: "http://localhost:8080/pageStatus",
         success: function (data) {
             let str = "";
             for (let i = 0; i < data.length; i++) {
@@ -53,7 +53,7 @@ pageStatus();
 function showPage() {
     $.ajax({
         type: "Get",
-        url: "http://localhost:8081/page",
+        url: "http://localhost:8080/page",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
@@ -115,7 +115,7 @@ showPage();
 function showFriend() {
     $.ajax({
         type: "Get",
-        url: "http://localhost:8081/friends",
+        url: "http://localhost:8080/friends",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
@@ -145,7 +145,7 @@ showFriend();
 function Notification() {
     $.ajax({
         type: "Get",
-        url: "http://localhost:8081/notifications",
+        url: "http://localhost:8080/notifications",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";

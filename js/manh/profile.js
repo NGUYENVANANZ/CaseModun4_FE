@@ -15,8 +15,7 @@ function showProfile() {
             document.getElementById("account-img3").src= str;
             document.getElementById("name-user").innerHTML= data.fullName;
             document.getElementById("name-user1").innerHTML= data.fullName;
-
-
+            document.getElementById("name-user2").innerHTML= data.fullName;
 
         },
         error: function (error) {
