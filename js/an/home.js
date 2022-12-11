@@ -1,4 +1,4 @@
-var Name;
+var Name = localStorage.getItem("Name");
 
 function accountImg() {
     $.ajax({
@@ -8,13 +8,13 @@ function accountImg() {
         success: function (data) {
             let str = data.img;
             let std = data.fullName;
-            Name = data.fullName;
+            localStorage.setItem("Name", data.fullName);
+            localStorage.setItem("idUser", data.id);
             document.getElementById("imgAccount").src = str;
             document.getElementById("imgAccount1").src = str;
             document.getElementById("imgAccount2").src = str;
             document.getElementById("nameAccount").innerHTML = std;
             document.getElementById("nameAccount1").innerHTML = std;
-
 
 
         },
@@ -39,7 +39,7 @@ function pageStatus() {
                 `
             }
 
-            document.getElementById("status").innerHTML = str;
+            // document.getElementById("status").innerHTML = str;
 
 
         },
@@ -55,7 +55,9 @@ function showPage() {
     $.ajax({
         type: "Get",
         url: "http://localhost:8080/page",
+
         url: "http://localhost:8081/search",
+
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
@@ -66,10 +68,11 @@ function showPage() {
             <div class="user-profile">
                 <img src="${data[i].account.img}" alt="">
                 <div>
-                    <p>${data[i].account.fullName}</p>
+                    <a onclick="checkPage(${data[i].account.id})">${data[i].account.fullName}</a>
+                    <br>
                     <small>${data[i].time}</small>
                 </div>
-            </div>
+            </div>  
             <div>
                 <a href="#"><i class="fas fa-ellipsis-v"></i></a>
             </div>
@@ -102,6 +105,7 @@ function showPage() {
     });
 }
 
+
 function checkLike(post, id) {
     for (let j = 0; j < post.likePages.length; j++) {
         if (post.likePages[j].accounts.fullName == Name) {
@@ -127,7 +131,7 @@ function showFriend() {
                 <div class="online">
                     <img src="${data[i].img}" alt="">
                 </div>
-                <a href="profileuser.html" onclick="pageFriend(${data[i].id})">${data[i].fullName}</a>
+                <a style="color: black"  onclick="pageFriend(${data[i].id})">${data[i].fullName}</a>
             </div>
 `
                 document.getElementById("friendList").innerHTML = str;
@@ -156,33 +160,33 @@ function Notification() {
                     str += `
 <div class="online-list">
                 <div class="online">
-                    <a href=""><img src="${data[i].account1.img}" alt=""></a>
+                    <a onclick="pageFriend(${data[i].account1.id})"><img src="${data[i].account1.img}" alt=""></a>
                 </div>
-                <a href=""> ${data[i].account1.fullName} </a>
+                <a onclick="pageFriend(${data[i].account1.id})"> ${data[i].account1.fullName} </a>
                 <a href="" style="color: black; margin-left: 5px"> đã comment bài viết của bạn</a>
             </div>         
 `
                 } else if (data[i].notificationType.id == 2) {
                     str += `<div class="online-list">
                 <div class="online">
-                    <a href=""><img src="${data[i].account1.img}" alt=""></a>
+                    <a onclick="pageFriend(${data[i].account1.id})"><img src="${data[i].account1.img}" alt=""></a>
                 </div>
-                <a href=""> ${data[i].account1.fullName} </a>
+                <a onclick="pageFriend(${data[i].account1.id})"> ${data[i].account1.fullName} </a>
                 <a href="" style="color: black; margin-left: 5px"> đã like một bài viết của bạn</a>
             </div>`
                 } else {
                     str += `
     <div class="online-list">
                 <div class="online">
-                    <a href=""><img src="${data[i].account1.img}" alt=""></a>
+                    <a onclick="pageFriend(${data[i].account1.id})"><img src="${data[i].account1.img}" alt=""></a>
                 
                 </div>
                 <div>
-                <a href=""> ${data[i].account1.fullName} </a>
+                <a onclick="pageFriend(${data[i].account1.id})"> ${data[i].account1.fullName} </a>
                 <a href="" style="color: black; margin-left: 5px"> đã gửi lời mời kết bạn</a>
                 <div style="margin-left: 200px">
                <button style="background-color: dodgerblue">Chấp Nhận</button>
-               <button>Từ chối</button>
+               <button onclick="unfriend(idFriend)">Từ chối</button>
 </div>
 </div>
             </div>
@@ -200,6 +204,9 @@ function Notification() {
 }
 
 Notification();
+
+
+
 
 
 
