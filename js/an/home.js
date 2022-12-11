@@ -54,11 +54,9 @@ pageStatus();
 function showPage() {
     $.ajax({
         type: "Get",
-<<<<<<< HEAD
         url: "http://localhost:8080/page",
-=======
-        url: "http://localhost:8081/search",
->>>>>>> bf337d48a5ad19d8fd33e6fcfd26ab959bec1396
+
+        // url: "http://localhost:8080/search",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
