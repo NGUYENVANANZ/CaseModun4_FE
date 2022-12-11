@@ -19,7 +19,7 @@
 
     <script src="https://kit.fontawesome.com/ef7e2b893b.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="js/manh/login.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -283,12 +283,10 @@
     </div>
     <div class="nav-right">
         <div class="search-box">
-            <ul>
-                <li>
                     <input type="text" id="search" oninput="search()" placeholder="Search">
                     <a onclick="search()" type="button" data-toggle="modal" data-target="#myModal1" >
                         <img  src="images/search.png" ></a>
-            </ul>
+
         </div>
 
         <div class="profile-image online" onclick="UserSettingToggle()">
@@ -315,15 +313,7 @@
             <img src="images/setting.png" alt="" class="settings-icon">
             <a href="#">Settings & Privary <img src="images/arrow.png" alt=""></a>
         </div>
-        <div>
-            <ul class="log-out">
-                <li><a href="about.html" title=""><i class="ti-user"></i> view profile</a></li>
-                <li><a href="setting.html" title=""><i class="ti-pencil-alt"></i>edit profile</a></li>
-                <li><a href="#" title=""><i class="ti-target"></i>activity log</a></li>
-                <li><a href="setting.html" title=""><i class="ti-settings"></i>account setting</a></li>
-                <li><a href="logout.html" title=""><i class="ti-power-off"></i>log out</a></li>
-            </ul>
-        </div>
+
         <div class="settings-links">
             <img src="images/logout.png" alt="" class="settings-icon">
             <a onclick="logout()">Logout <img src="images/arrow.png" alt=""></a>
@@ -493,6 +483,7 @@
 <script src="js/manh/profile.js"></script>
 <script src="js/dinh/Like.js"></script>
 <script src="js/linh/search.js"></script>
+<script src="js/manh/login.js"></script>
 </body>
 </html>
 
