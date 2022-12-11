@@ -1,7 +1,7 @@
 function like(id, i){
 $.ajax ({
     type: "Post",
-    url: "http://localhost:8081/page/" + id,
+    url: "http://localhost:8080/page/" + id,
     headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
     success: function (data){
         let id = i + "p"
@@ -19,6 +19,23 @@ $.ajax ({
     }
 })
 }
+
+function pageFriend(id){
+    localStorage.setItem("idFriend", id);
+    location.href = "profileuser.html"
+}
+
+function checkPage(id){
+    let idUser = localStorage.getItem("idUser");
+    if (idUser == id){
+        location.href = "profile.html"
+    }else {
+        localStorage.setItem("idFriend", id);
+        location.href = "profileuser.html"
+    }
+}
+
+
 
 
 

@@ -3,6 +3,13 @@
 
 <head>
 
+        <div class="triangle_rose"></div>
+
+
+    <meta name="description" content="Table Responsive" />
+    <meta name="keywords" content="table, responsive" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +24,6 @@
 
     <script src="https://kit.fontawesome.com/ef7e2b893b.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="js/linh/search.css">
 
 
 </head>
@@ -269,19 +275,17 @@
 </style>
 <body>
     <nav class="navbar">
-        <div class="nav-left"><img class="logo" src="images/logo.png" alt="">
+        <div class="nav-left"><a href="index.html"><img class="logo" src="images/logo.png" alt=""></a>
             <ul class="navlogo">
                 <li><a type="button" data-toggle="modal" data-target="#myModal" ><img src="images/notification.png"></a></button></li>
             </ul>
         </div>
         <div class="nav-right">
             <div class="search-box">
-
-                <img src="images/search.png" alt="">
-                <input type="text" id="search" oninput="search()" placeholder="Search">
+                        <input type="text" id="search" oninput="search()" placeholder="Search">
+                        <a onclick="search()" type="button" data-toggle="modal" data-target="#myModal1" >
+                        <img  src="images/search.png" ></a>
             </div>
-
-
 
             <div class="profile-image online" onclick="UserSettingToggle()">
                 <img src="images/profile-pic.png" alt="" id="imgAccount">
@@ -320,7 +324,7 @@
     <div class="container1">
         <div class="left-sidebar">
             <div class="important-links">
-                <a href="#"><img src="images/news.png" alt="">Trang Chủ</a>
+                <a href="profile.html"><img src="images/news.png" alt="">Trang Cá Nhân</a>
                 <a href="#"><img src="images/friends.png" alt="">Friends</a>
             </div>
 
@@ -332,12 +336,15 @@
         <div class="content-area">
             <div class="write-post-container">
                 <div class="central-meta postbox">
-                    <span class="create-post"  ><h5>Create post</h5></span>
+                    <span class="create-post"  ><h5 id="nameAccount"></h5>
+
+                    </span>
                     <div class="new-postbox" style="margin-top: 5px">
                         <figure>
                             <img class="imgprofile" id="imgAccount2" alt="">
                         </figure>
-                        <div class="newpst-input">
+                        <select id="status" style="width: 18px; height: 15px; margin-left: 5px; "></select>
+                        <div class="newpst-input" style="margin-left: 75px">
                             <form method="post">
                                 <textarea rows="2" placeholder="Share some what you are thinking?"></textarea>
                             </form>
@@ -429,41 +436,42 @@
     </div>
 
 
-<br>
-    <h2>List Account</h2>
+    <!-- The Modal -->
+    <div class="modal" id="myModal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-    <table class="content-table" style="width: 100%" >
-        <thead>
-        <tr>
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">List User</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
 
-            <th>Name</th>
-            <th>Img</th>
+                <!-- Modal body -->
+                <div class="modal-body" id="showSearch">
+                </div>
 
-        </tr>
-        </thead>
-        <tbody id="showSearch" >
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
 
-        </tbody>
-    </table>
+            </div>
+        </div>
+    </div>
 
 
 
-    <footer id="footer">
+    <footer id="footer" >
         <p>&copy; Copyright 2021 - Socialbook All Rights Reserved</p>
     </footer>
 
-
-
-
-    <script src="function.js"></script>
 </body>
+<script src="function.js"></script>
 <script src="js/manh/login.js"></script>
 <script src="js/an/home.js"></script>
 <script src="js/linh/search.js"></script>
-
-</html>
-
 <script src="js/dinh/Like.js"></script>
-
+<script src="js/an/addFriend.js"></script>
 </html>
 

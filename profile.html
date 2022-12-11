@@ -7,35 +7,299 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Profle - Socialbook</title>
+    <meta name="description" content="Table Responsive" />
+    <meta name="keywords" content="table, responsive" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="https://kit.fontawesome.com/ef7e2b893b.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="js/manh/login.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <div class="triangle_rose">
+    </div>
+
+
 </head>
+<style>
+    .imgprofile {
+        border-radius: 50%;
+        overflow: hidden;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+    .central-meta {
+        background: #fff none repeat scroll 0 0;
+        border: 1px solid #ede9e9;
+        border-radius: 5px;
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 20px;
+        position: relative;
+    }
+
+    .central-meta.padding30 {
+        padding: 30px;
+    }
+    .central-meta{padding: 15px;}
+    .create-post::before
+    .create-post {
+        border-bottom: 1px solid #e6ecf5;
+        display: block;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 15px;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        text-transform: capitalize;
+        width: 100%;
+        color: #515365;
+        position: relative;
+    }
+    .create-post::before {
+        content: "";
+        height: 90%;
+        left: -20px;
+        position: absolute;
+        top: -5px;
+        width: 3px;
+    }
+    .create-post > i {
+        font-size: 20px;
+        vertical-align: sub;
+    }
+    .create-post > a {
+        display: inline-block;
+        float: right;
+        font-size: 11px;
+        font-weight: normal;
+    }
+
+    .create-post::before {
+        content: "";
+        height: 90%;
+        left: -20px;
+        position: absolute;
+        top: -5px;
+        width: 3px;
+    }
+    .create-post > i {
+        font-size: 20px;
+        vertical-align: sub;
+    }
+    .create-post > a {
+        display: inline-block;
+        float: right;
+        font-size: 11px;
+        font-weight: normal;
+    }
+    .new-postbox {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .new-postbox > figure {
+        display: inline-block;
+        margin-bottom: 0;
+        vertical-align: top;
+    }
+
+
+    .newpst-input {
+        display: inline-block;
+        vertical-align: top;
+        width: 90%;
+    }
+
+    .newpst-input > form {
+        display: inline-block;
+        width: 100%;
+    }
+    .newpst-input textarea {
+        float: left;
+        width: 100%;
+        border: none;
+    }
+    .newpst-input textarea:focus,
+    .newpst-input textarea:active {
+        outline: medium none;
+        border: none;
+    }
+    .newpst-input {
+        width: 82%;
+    }
+    .newpst-input {
+        width: 80%;
+    }
+    .newpst-input textarea {
+        font-size: 13px;
+    }
+    .newpst-input {
+        width: 85%;
+    }
+    .attachments {
+        display: block;
+        text-align: left;
+        background: #fff;
+    }
+
+    .attachments > ul {
+        list-style: outside none none;
+        margin-bottom: 0;
+        padding-left: 0;
+        line-height: initial;
+    }
+
+    .attachments li {
+        display: inline-block;
+        margin-left: 10px;
+        vertical-align: middle;
+        font-size: 16px;
+        line-height: 0;
+    }
+    .attachments li:first-child{
+        margin-left: 0;
+    }
+
+    .attachments li.preview-btn {
+        float: right;
+    }
+    .attachments li.preview-btn button {
+        background: #fff none repeat scroll 0 0;
+        border: 1px solid;
+        border-radius: 30px;
+        color: inherit;
+        font-size: 12px;
+        font-weight: 500;
+        padding: 12px 10px;
+        transition: all 0.2s linear 0s;
+    }
+    .attachments li.preview-btn button:hover {
+        color: #fff;
+    }
+    .attachments > ul .add-loc {
+        cursor: pointer;
+        display: block;
+        font-size: 20px;
+        margin-top: -5px;
+    }
+    .fileContainer {
+        display: inline-block;
+        font-size: 14px;
+        position: relative;
+        text-align: center;
+        text-transform: capitalize;
+    }
+    .attach-file .fileContainer {
+        background: #23d2e2;
+        border-radius: 100%;
+        color: #fff;
+        display: inline-block;
+        font-size: 14px;
+        height: 30px;
+        line-height: 30px;
+        margin: 0;
+        position: relative;
+        text-align: center;
+        text-transform: capitalize;
+        width: 30px;
+    }
+
+    .fileContainer [type=file] {
+        cursor: pointer;
+        display: block;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        position: absolute;
+        right: 0px;
+        text-align: right;
+        top: 0;
+        width: 100%;
+        overflow: hidden;
+    }
+    .uploadimage {
+        display: inline-block;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+
+    .uploadimage .fileContainer [type="file"] {
+        left: -22px;
+        top: -10px;
+        width: 20px;
+    }
+    .uploadimage > i {
+        font-size: 16px;
+        position: relative;
+        top: 1px;
+    }
+
+    .user-avatar .edit-phto {
+        border-radius: 0;
+        bottom: -40px;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+        width: 100%;
+        transition: all 0.3s linear 0s;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .user-avatar:hover .edit-phto {
+        bottom: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+    .new-postbox .post-btn:hover,
+    .new-postbox .post-btn {
+        background: #23d2e2 none repeat scroll 0 0;
+        border: medium none;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: 500;
+        margin-top: 11px;
+        padding: 5px;
+        width: 100%;
+        transition: all 0.2s linear 0s;
+    }
+
+</style>
 <body>
 <nav class="navbar">
-    <div class="nav-left"><img class="logo" src="images/logo.png" alt="">
+    <div class="nav-left"><a href="index.html"><img class="logo" src="images/logo.png" alt=""></a>
         <ul class="navlogo">
             <li><img src="images/notification.png"></li>
-            <li><img src="images/inbox.png"></li>
-            <li><img src="images/video.png"></li>
         </ul>
     </div>
     <div class="nav-right">
         <div class="search-box">
-            <img src="images/search.png" alt="">
-            <input type="text" placeholder="Search">
+            <input type="text" id="search" oninput="search()" placeholder="Search">
+            <a onclick="search()" type="button" data-toggle="modal" data-target="#myModal1" >
+                <img  src="images/search.png" ></a>
+
         </div>
+
         <div class="profile-image online" onclick="UserSettingToggle()">
-            <img id="account-img" alt="">
+            <img  id="account-img" alt="">
         </div>
 
     </div>
     <div class="user-settings">
         <div class="profile-darkButton">
             <div class="user-profile">
-                <img id="account-img1" alt="">
+                <img  id="account-img1" alt="">
                 <div>
-                    <p id="name-user1"></p>
+                    <p id="name-user1"> </p>
                     <a href="profile.html">See your profile</a>
                 </div>
             </div>
@@ -45,12 +309,10 @@
         </div>
         <hr>
         <hr>
-
         <div class="settings-links">
             <img src="images/setting.png" alt="" class="settings-icon">
             <a href="#">Settings & Privary <img src="images/arrow.png" alt=""></a>
         </div>
-
 
         <div class="settings-links">
             <img src="images/logout.png" alt="" class="settings-icon">
@@ -63,14 +325,17 @@
 <!-- profile-page-------------------------- -->
 
 
+</div>
+
+
 <div class="profile-container">
     <div class="dashboard">
         <div class="left-dashboard">
-            <img class="dashboard-img" id="account-img3" alt="">
-            <div class="left-dashboard-info">
+            <img   class="dashboard-img" id="account-img3" alt="">
+            <div class="left-dashboard-info" style="margin-top: 80px">
                 <h3 id="name-user"></h3>
                 <p id="demfriend"></p>
-                <div class="mutual-friend-images">
+                <div class="mutual-friend-images" >
                     <img id="iconfriend1" alt="">
                     <img id="iconfriend2" alt="">
                     <img id="iconfriend3" alt="">
@@ -117,17 +382,58 @@
 
         <div class="content-area profile-content-area">
             <div class="write-post-container">
-                <div class="user-profile">
-                    <img id="account-img2" alt="">
-                    <div>
-                        <p id="name-user2"></p>
-                        <small>Public <i class="fas fa-caret-down"></i></small>
-                    </div>
-                </div>
+                <div class="central-meta postbox">
+                    <span class="create-post"  ><h5 id="name-user2"></h5>
+                    </span>
 
-                <div class="post-upload-textarea">
-                    <BUTTON name="" placeholder="What's on your mind, Alex?" id="" cols="30" rows="3">Post</BUTTON>
-                </div>
+                    <div class="new-postbox" style="margin-top: 5px">
+                        <figure>
+                            <img class="imgprofile" id="account-img2" alt="">
+                        </figure>
+                        <select id="status-profile" style="width: 18px; height: 15px; margin-left: 5px">
+
+                        </select>
+                        <div class="newpst-input">
+                            <form method="post">
+                                <textarea rows="2" placeholder="Share some what you are thinking?"></textarea>
+                            </form>
+                        </div>
+                        <div class="attachments">
+                            <ul>
+
+                                <li>
+                                    <i class="fa fa-music"></i>
+                                    <label class="fileContainer">
+                                        <input type="file">
+                                    </label>
+                                </li>
+                                <li>
+                                    <i class="fa fa-image"></i>
+                                    <label class="fileContainer">
+                                        <input type="file">
+                                    </label>
+                                </li>
+                                <li>
+                                    <i class="fa fa-video-camera"></i>
+                                    <label class="fileContainer">
+                                        <input type="file">
+                                    </label>
+                                </li>
+                                <li>
+                                    <i class="fa fa-camera"></i>
+                                    <label class="fileContainer">
+                                        <input type="file">
+                                    </label>
+                                </li>
+                                <!--                                <li class="preview-btn">-->
+                                <!--                                    <button class="post-btn-preview" type="submit" data-ripple="">Preview</button>-->
+                                <!--                                </li>-->
+                            </ul>
+                            <button class="post-btn" type="submit" data-ripple="">Post</button>
+                        </div>
+                    </div>
+                </div><!-- add post new box -->
+
             </div>
             <div id="page">
             </div>
@@ -136,46 +442,47 @@
     </div>
 </div>
 
-<!--<div class="container1">-->
 
-<!--    <div class="modal" id="myModal">-->
-<!--        <div class="modal-dialog">-->
-<!--            <div class="modal-content">-->
+<!-- The Modal -->
+<div class="modal" id="myModal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
 
-<!--                &lt;!&ndash; Modal Header &ndash;&gt;-->
-<!--                <div class="modal-header">-->
-<!--                    <h4 class="modal-title">Create Product</h4>-->
-<!--                    <button type="button" class="close" data-dismiss="modal">&times;</button>-->
-<!--                </div>-->
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">List User</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
 
-<!--                &lt;!&ndash; Modal body &ndash;&gt;-->
-<!--                <div class="modal-body">-->
-<!--                    <input id="name" placeholder="Nhập name"><br>-->
-<!--                    <input id="img" placeholder="Nhập img"><br>-->
-<!--                    <input id="age" placeholder="Nhập age"><br>-->
-<!--                    <select id="classroom">-->
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="container mt-3">
+                    <table class="container">
 
-<!--                    </select>-->
-<!--                </div>-->
+                        <tbody id="showSearch">
 
-<!--                &lt;!&ndash; Modal footer &ndash;&gt;-->
-<!--                <div class="modal-footer">-->
-<!--                    <button type="button" class="btn btn-success" onclick="create()" data-dismiss="modal">Create</button>-->
-<!--                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>-->
-<!--                </div>-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 
 <footer id="footer">
     <p>&copy; Copyright 2021 - Socialbook All Rights Reserved</p>
 </footer>
-
 <script src="function.js"></script>
-<script src="js/an/home.js"></script>
 <script src="js/manh/profile.js"></script>
+<script src="js/dinh/Like.js"></script>
+<script src="js/linh/search.js"></script>
+<script src="js/manh/login.js"></script>
 </body>
 </html>
-

@@ -79,3 +79,14 @@ function checkPass(){
         document.getElementById("pass-err").innerHTML=""
     }
 }
+
+function checkTrong(){
+    let userName1 = document.getElementById("Email").value;
+    let passWord1 = document.getElementById("Password").value;
+    let phonenumber1 = document.getElementById("PhoneNumber").value;
+    let fullname1 = document.getElementById("name").value;
+    let date1 = document.getElementById("Date").value;
+    let gender1 = document.getElementById("gender").value;
+    let Address1 = document.getElementById("Address").value;
+    let img1 = document.getElementById("img").value;
+}

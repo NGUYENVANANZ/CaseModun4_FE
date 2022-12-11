@@ -1,20 +1,16 @@
-var id;
-
-function pageFriend(idx){
-    id = idx;
-}
+let idFriend = localStorage.getItem("idFriend");
 
 
-function profileUser(id){
+function profileUser(id) {
     $.ajax({
         type: "Get",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
-        url: "http://localhost:8080/profile/"+id,
+        url: "http://localhost:8080/profile/" + id,
         success: function (data) {
             let str = data.img;
             let std = data.fullName;
-                document.getElementById("imgFriend").src = str;
-                document.getElementById("friendName").innerHTML = std;
+            document.getElementById("imgFriend").src = str;
+            document.getElementById("friendName").innerHTML = std;
         },
         error: function (error) {
             console.log(error);
@@ -23,12 +19,12 @@ function profileUser(id){
     })
 }
 
+profileUser(idFriend);
 
-
-function profilePost(id){
+function profilePost(id) {
     $.ajax({
         type: "Get",
-        url: "http://localhost:8080/page/"+id,
+        url: "http://localhost:8080/page/" + id,
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
@@ -39,7 +35,8 @@ function profilePost(id){
             <div class="user-profile">
                 <img src="${data[i].account.img}" alt="">
                 <div>
-                    <p>${data[i].account.fullName}</p>
+                    <a onclick="pageFriend(${data[i].account.id})">${data[i].account.fullName}</a>
+                    <br>
                     <small>${data[i].time}</small>
                 </div>
             </div>
@@ -53,7 +50,7 @@ function profilePost(id){
         </div>
         <div class="post-reaction">
             <div class="activity-icons">
-                <div><img src="images/like-blue.png" alt="">${data[i].likePages.length}</div>
+                <div><a onclick="like(${data[i].id}, ${i})" ><img src="images/like.png" alt="" id="${i}" ></a><p id="${i}p">${data[i].likePages.length}</p></div>
                 <div><img src="images/comments.png" alt="">${data[i].cmts.length}</div>
             </div>
             <div class="post-profile-picture">
@@ -62,7 +59,10 @@ function profilePost(id){
         </div>
     </div>
 `
-                document.getElementById("paged").innerHTML = str;
+            }
+            document.getElementById("paged").innerHTML = str;
+            for (let i = 0; i < data.length; i++) {
+                checkLike(data[i], i);
             }
         },
         error: function (error) {
@@ -72,14 +72,16 @@ function profilePost(id){
 }
 
 
-function profileFriend(id){
+profilePost(idFriend);
+
+function profileFriend(id) {
     $.ajax({
         type: "Get",
-        url: "http://localhost:8080/friends/"+ id,
+        url: "http://localhost:8080/friends/" + id,
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
-            let demFriend =0;
+            let demFriend = 0;
             for (let i = 0; i < data.length; i++) {
                 str += `
                         <div class="first-friend">
@@ -89,9 +91,9 @@ function profileFriend(id){
                         </div>`
                 demFriend += 1;
                 document.getElementById("listfriends").innerHTML = str;
-                document.getElementById("iconfriend1d").src= data[0].img;
-                document.getElementById("iconfriend2d").src= data[1].img;
-                document.getElementById("iconfriend3d").src= data[2].img;
+                document.getElementById("iconfriend1d").src = data[0].img;
+                document.getElementById("iconfriend2d").src = data[1].img;
+                document.getElementById("iconfriend3d").src = data[2].img;
 
             }
             document.getElementById("demfriends").innerHTML = demFriend + " Friends";
@@ -103,8 +105,31 @@ function profileFriend(id){
         }
     })
 }
-profilePost(id);
 
-profileUser(id);
+profileFriend(idFriend);
 
-profileFriend(id);
+function checkFriend(idFriend) {
+    $.ajax({
+        type: "Get",
+        url: "http://localhost:8080/checkFriends/" + idFriend,
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        success: function (data) {
+            let str = `<button type="button" style="background-color: #1876f2" onclick="addFriend(idFriend)"><p>Friends</p></button>`
+            if (data.id == 1) {
+                str = `<button style="background-color: #1876f2">Friend</button><button onclick="unfriend(idFriend)" style="background-color: #9a9a9a">UnFriend</button>`
+            }
+            if (data.id == 2) {
+                str = `<p>-> Sent friend request</p><button onclick="unfriend(idFriend)" style="background-color: #9a9a9a">X cancel friend request</button>`
+            }
+            document.getElementById("friendStatus").innerHTML = str;
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+checkFriend(idFriend);
+
+
+
