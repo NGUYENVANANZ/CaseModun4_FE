@@ -4,9 +4,6 @@ var LoadMoreBackground =document.querySelector(".btn-LoadMore");
 function UserSettingToggle(){
     userSettings.classList.toggle("user-setting-showup-toggle");
 }
-// darkBtn.onclick = function(){
-//     darkBtn.classList.toggle("dark-mode-on");
-// }
 
 function darkModeON(){
     darkBtn.classList.toggle("dark-mode-on");

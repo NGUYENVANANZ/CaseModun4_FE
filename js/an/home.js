@@ -207,8 +207,8 @@ function Notification() {
                 <a onclick="pageFriend(${data[i].account1.id})"> ${data[i].account1.fullName} </a>
                 <a href="" style="color: black; margin-left: 5px"> đã gửi lời mời kết bạn</a>
                 <div style="margin-left: 200px">
-               <button style="background-color: dodgerblue">Chấp Nhận</button>
-               <button onclick="unfriend(idFriend)">Từ chối</button>
+               <button style="background-color: dodgerblue" onclick="newFriend(${data[i].account1.id})">Chấp Nhận</button>
+               <button onclick="unfriend(${data[i].account1.id})">Từ chối</button>
 </div>
 </div>
             </div>
@@ -226,6 +226,20 @@ function Notification() {
 }
 
 Notification();
+
+function newFriend(idFriend){
+    $.ajax({
+        type: "Post",
+        url: "http://localhost:8080/newFriend/" + idFriend,
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        success: function (data) {
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+
+}
 
 
 
