@@ -282,15 +282,10 @@
         </div>
         <div class="nav-right">
             <div class="search-box">
-                <ul>
-                    <li>
                         <input type="text" id="search" oninput="search()" placeholder="Search">
                         <a onclick="search()" type="button" data-toggle="modal" data-target="#myModal1" >
                         <img  src="images/search.png" ></a>
-                </ul>
             </div>
-
-
 
             <div class="profile-image online" onclick="UserSettingToggle()">
                 <img src="images/profile-pic.png" alt="" id="imgAccount">
@@ -341,12 +336,15 @@
         <div class="content-area">
             <div class="write-post-container">
                 <div class="central-meta postbox">
-                    <span class="create-post"><h5 id="nameAccount"></h5></span>
+                    <span class="create-post"  ><h5 id="nameAccount"></h5>
+
+                    </span>
                     <div class="new-postbox" style="margin-top: 5px">
                         <figure>
                             <img class="imgprofile" id="imgAccount2" alt="">
                         </figure>
-                        <div class="newpst-input">
+                        <select id="status" style="width: 18px; height: 15px; margin-left: 5px; "></select>
+                        <div class="newpst-input" style="margin-left: 75px">
                             <form method="post">
                                 <textarea rows="2" placeholder="Share some what you are thinking?"></textarea>
                             </form>
@@ -476,5 +474,4 @@
 <script src="js/dinh/Like.js"></script>
 <script src="js/an/addFriend.js"></script>
 </html>
-
 

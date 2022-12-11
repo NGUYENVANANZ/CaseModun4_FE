@@ -17,6 +17,31 @@ function accountImg() {
             document.getElementById("nameAccount1").innerHTML = std;
 
 
+
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function pageStatus() {
+    $.ajax({
+        type: "Get",
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        url: "http://localhost:8080/pageStatus",
+        success: function (data) {
+            let str = "";
+            for (let i = 0; i < data.length; i++) {
+                str += `
+                <option value="${data[i].id}">${data[i].pageStatus}</option>
+                `
+            }
+
+            document.getElementById("status").innerHTML = str;
+
+
+
         },
         error: function (error) {
             console.log(error);
@@ -39,7 +64,7 @@ function pageStatus() {
                 `
             }
 
-            // document.getElementById("status").innerHTML = str;
+            document.getElementById("status").innerHTML = str;
 
 
         },
@@ -96,7 +121,7 @@ function showPage() {
                 checkLike(data[i], i);
             }
         },
-        error: function (error) {
+        error: function(error) {
             console.log(error);
         }
     });
