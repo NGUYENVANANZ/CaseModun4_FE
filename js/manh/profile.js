@@ -38,14 +38,19 @@ function showPage() {
             <div class="user-profile">
                 <img src="${data[i].account.img}" alt="">
                 <div>
-                    <a onclick="pageFriend(${data[i].account.id})">${data[i].account.fullName}</a>
+                    <p><a >${data[i].account.fullName}</a></p>
                     <br>
-                    <small>${data[i].time}</small>
+                    <small>Ngay dang :</small><small>${data[i].time}</small>
                 </div>
             </div>
-            <div>
-                <a href="#"><i class="fas fa-ellipsis-v"></i></a>
-            </div>
+            <div class="more">
+        <div class="more-post-optns"><i class="fas fa-ellipsis-v"></i>
+        <ul>
+        <li><i class="fa fa-pencil-square-o"></i>Edit Post</li>
+        <li><i class="fa fa-trash-o"></i>Delete Post</li>
+        </ul>
+        </div>
+        </div>
         </div>
         <div class="status-field">
             <p>${data[i].text} </p>
@@ -121,7 +126,7 @@ function pageStatus() {
             let str = "";
             for (let i = 0; i < data.length; i++) {
                 str += `
-                <option value="${data[i].id}">${data[i].pageStatus}</option>
+                <option value="${data[i].id}" >${data[i].pageStatus}</option>
                 `
             }
 
@@ -135,3 +140,43 @@ function pageStatus() {
     });
 }
 pageStatus();
+function post(){
+    let fileimg =document.getElementById("imgpost").value
+    let text =document.getElementById("text").value
+    let id=document.getElementById("status-profile").value
+    let status = document.getElementById("status-profile").innerHTML
+
+let page ={
+    "text" : text,
+    "img"  : fileimg,
+    "pageStatus" : {
+        "id": id,
+        "pageStatus" : status
+    }
+    }
+
+    $.ajax({
+        type: "Post",
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        url: "http://localhost:8080/profiles/post",
+        contentType: "application/json",
+        data: JSON.stringify(page),
+        success: function (data) {
+            alert("Dang bai thanh cong")
+            location.href= "/CaseModun4_FE/Case_Module%204/profile.html?_ijt=p0p3p9fehcku2119ip4qc6i0mu&_ij_reload=RELOAD_ON_SAVE";
+        },
+        error() {
+            alert("err")
+        }
+    })
+}
+function xemtruocanhup(){
+    let fileimg =document.getElementById("imgpost").value
+    if (fileimg !== ""){
+        document.getElementById("imgpostdemo").innerHTML = '<img id="up" style="width: 362px ;height: 200px">';
+        document.getElementById("up").src=fileimg;
+    }else{
+        document.getElementById("imgpostdemo").innerHTML = '<img id="up" >';
+    }
+
+}
