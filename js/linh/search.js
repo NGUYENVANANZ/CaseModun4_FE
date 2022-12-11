@@ -11,10 +11,11 @@ $('#search').keypress(function (event) {
 
     function search() {
         let fullName = document.getElementById("search").value;
+
         $.ajax({
             type: "Get",
             headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
-            url: "http://localhost:8080/search/" + fullName,
+            url: "http://localhost:8081/search/" + fullName,
             success: function (data) {
                 console.log(data)
                 let str = "";

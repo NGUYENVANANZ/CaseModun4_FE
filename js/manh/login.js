@@ -15,7 +15,7 @@ function login() {
             // kiểu truyền đi
             'Content-Type': 'application/json'
         },
-        url: "http://localhost:8080/login",
+        url: "http://localhost:8081/login",
         data: JSON.stringify(Account),
         //xử lý khi thành công
         success: function (data) {
