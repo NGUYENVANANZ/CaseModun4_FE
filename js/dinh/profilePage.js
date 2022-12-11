@@ -114,7 +114,8 @@ function checkFriend(idFriend) {
         url: "http://localhost:8080/checkFriends/" + idFriend,
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
-            let str = `<button type="button" style="background-color: #1876f2" onclick="addFriend(idFriend)"><p>Friends</p></button>`
+            let str = `<a href="#" title="Add friend" data-toggle="tooltip" onclick="addFriend(idFriend)"><i class="fa fa-user-plus"></i></a>
+`
             if (data.id == 1) {
                 str = `<button style="background-color: #1876f2">Friend</button><button onclick="unfriend(idFriend)" style="background-color: #9a9a9a">UnFriend</button>`
             }
@@ -132,4 +133,7 @@ function checkFriend(idFriend) {
 checkFriend(idFriend);
 
 
-
+function logout() {
+    localStorage.setItem("token", "")
+    location.href = "login.html"
+}
