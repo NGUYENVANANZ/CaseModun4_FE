@@ -188,6 +188,54 @@ function xemtruocanhup() {
 
 }
 
+<<<<<<< HEAD
+function Notification() {
+    $.ajax({
+        type: "Get",
+        url: "http://localhost:8080/notifications",
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        success: function (data) {
+            let str = "";
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].notificationType.id == 1) {
+                    str += `
+<div class="online-list">
+                <div class="online">
+                    <a onclick="pageFriend(${data[i].account1.id})"><img src="${data[i].account1.img}" alt=""></a>
+                </div>
+                <a onclick="pageFriend(${data[i].account1.id})"> ${data[i].account1.fullName} </a>
+                <a href="" style="color: black; margin-left: 5px"> đã comment bài viết của bạn</a>
+            </div>         
+`
+                } else if (data[i].notificationType.id == 2) {
+                    str += `<div class="online-list">
+                <div class="online">
+                    <a onclick="pageFriend(${data[i].account1.id})"><img src="${data[i].account1.img}" alt=""></a>
+                </div>
+                <a onclick="pageFriend(${data[i].account1.id})"> ${data[i].account1.fullName} </a>
+                <a href="" style="color: black; margin-left: 5px"> đã like một bài viết của bạn</a>
+            </div>`
+                } else {
+                    str += `
+    <div class="online-list">
+                <div class="online">
+                    <a onclick="pageFriend(${data[i].account1.id})"><img src="${data[i].account1.img}" alt=""></a>
+                
+                </div>
+                <div>
+                <a onclick="pageFriend(${data[i].account1.id})"> ${data[i].account1.fullName} </a>
+                <a href="" style="color: black; margin-left: 5px"> đã gửi lời mời kết bạn</a>
+                <div style="margin-left: 200px">
+               <button style="background-color: dodgerblue" onclick="newFriend(${data[i].account1.id}, ${data[i].id})">Chấp Nhận</button>
+               <button onclick="unfriend(${data[i].account1.id},${data[i].id})">Từ chối</button>
+</div>
+</div>
+            </div>
+`
+                }
+                document.getElementById("notification1").innerHTML = str;
+            }
+=======
 
 function deletePost(id) {
     $.ajax({
@@ -215,16 +263,23 @@ function getpost(id) {
             document.getElementById("editimgpost").value = data.img;
             document.getElementById("edittext").value = data.text;
             document.getElementById("pagestatus").innerHTML = data.pageStatus.pageStatus;
+>>>>>>> 08072189b98d999254b3b12f822777da0620ab51
 
 
         },
         error: function (error) {
             console.log(error);
+<<<<<<< HEAD
+=======
             alert("deook")
+>>>>>>> 08072189b98d999254b3b12f822777da0620ab51
         }
     });
 }
 
+<<<<<<< HEAD
+Notification();
+=======
 
 function editpost() {
     let idPage = document.getElementById("idPage").value;
@@ -253,3 +308,4 @@ function editpost() {
         }
     })
 }
+>>>>>>> 08072189b98d999254b3b12f822777da0620ab51
