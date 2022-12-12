@@ -32,7 +32,7 @@ function search() {
                  <br>
                <p style="color: red">${limit(data[i].text, 20)}</p>            
                 </div>
-                
+               
                 </div>
                     `
                     count++;

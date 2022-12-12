@@ -63,9 +63,6 @@ function showPage() {
                 <div><a onclick="like(${data[i].id}, ${i})" ><img src="images/like.png" alt="" id="${i}" ></a><a data-toggle="modal" data-target="#myModal7" onclick="showListLike(${data[i].id})"  id="${i}p">${data[i].likePages.length}</a></div>
                 <div><img src="images/comments.png" alt="">${data[i].cmts.length}</div>
             </div>
-            <div class="post-profile-picture">
-                <img src="images/profile-pic.png " alt=""> <i class=" fas fa-caret-down"></i>
-            </div>
         </div>
     </div>
 `
@@ -253,13 +250,14 @@ function Notification() {
 
 
 function deletePost(id) {
+    alert(id)
     $.ajax({
-        type: "Post",
+        type: "Get",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         url: "http://localhost:8080/profiles/deletepost/" + id,
         success: function () {
             alert("xoa bai thanh cong")
-            location.href = "/CaseModun4_FE/Case_Module%204/profile.html?_ijt=p0p3p9fehcku2119ip4qc6i0mu&_ij_reload=RELOAD_ON_SAVE";
+            location.href = "profile.html";
         },
         error() {
             alert("err")
@@ -310,7 +308,7 @@ function editpost() {
         data: JSON.stringify(PageDTO),
         success: function (data) {
             alert("sua bai thanh cong")
-            location.href = "/CaseModun4_FE/Case_Module%204/profile.html?_ijt=p0p3p9fehcku2119ip4qc6i0mu&_ij_reload=RELOAD_ON_SAVE";
+            location.href = "profile.html";
         },
         error: function (error) {
             console.log(error)

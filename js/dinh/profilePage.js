@@ -53,9 +53,6 @@ function profilePost(id) {
                 <div><a onclick="like(${data[i].id}, ${i})" ><img src="images/like.png" alt="" id="${i}" ></a><a data-toggle="modal" data-target="#myModal7" onclick="showListLike(${data[i].id})"  id="${i}p">${data[i].likePages.length}</a></div>
                 <div><img src="images/comments.png" alt="">${data[i].cmts.length}</div>
             </div>
-            <div class="post-profile-picture">
-                <img src="images/profile-pic.png " alt=""> <i class=" fas fa-caret-down"></i>
-            </div>
         </div>
     </div>
 `
