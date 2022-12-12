@@ -119,7 +119,7 @@ function checkFriend(idFriend) {
                 str = `<button style="background-color: #1876f2">Friend</button><button onclick="unfriend(idFriend)" style="background-color: #9a9a9a">UnFriend</button>`
             }
             if (data.id == 2) {
-                str = `<p>-> Sent friend request</p><button onclick="unfriend(idFriend)" style="background-color: #9a9a9a">X cancel friend request</button>`
+                str = `<button>-> Sent friend request</button><button onclick="unfriends(idFriend)" style="background-color: #9a9a9a">X cancel friend request</button>`
             }
             document.getElementById("friendStatus").innerHTML = str;
         },

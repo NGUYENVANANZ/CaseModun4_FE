@@ -25,30 +25,6 @@ function accountImg() {
     });
 }
 
-function pageStatus() {
-    $.ajax({
-        type: "Get",
-        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
-        url: "http://localhost:8080/pageStatus",
-        success: function (data) {
-            let str = "";
-            for (let i = 0; i < data.length; i++) {
-                str += `
-                <option value="${data[i].id}">${data[i].pageStatus}</option>
-                `
-            }
-
-            document.getElementById("status").innerHTML = str;
-
-
-
-        },
-        error: function (error) {
-            console.log(error);
-        }
-    });
-}
-
 accountImg();
 
 function pageStatus() {
@@ -207,8 +183,8 @@ function Notification() {
                 <a onclick="pageFriend(${data[i].account1.id})"> ${data[i].account1.fullName} </a>
                 <a href="" style="color: black; margin-left: 5px"> đã gửi lời mời kết bạn</a>
                 <div style="margin-left: 200px">
-               <button style="background-color: dodgerblue" onclick="newFriend(${data[i].account1.id})">Chấp Nhận</button>
-               <button onclick="unfriend(${data[i].account1.id})">Từ chối</button>
+               <button style="background-color: dodgerblue" onclick="newFriend(${data[i].account1.id}, ${data[i].id})">Chấp Nhận</button>
+               <button onclick="unfriend(${data[i].account1.id},${data[i].id})">Từ chối</button>
 </div>
 </div>
             </div>
@@ -227,18 +203,34 @@ function Notification() {
 
 Notification();
 
-function newFriend(idFriend){
+function newFriend(idFriend, idNo){
+    alert(idFriend)
     $.ajax({
         type: "Post",
-        url: "http://localhost:8080/newFriend/" + idFriend,
+        url: "http://localhost:8080/newFriend/" + idFriend + "&" + idNo,
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
+            location.href = "profile.html"
         },
         error: function (error) {
             console.log(error);
         }
     });
 
+}
+
+function unfriend(idFriend, iNo){
+    $.ajax({
+        type: "Post",
+        url: "http://localhost:8080/unFriend/" + idFriend + "&" + iNo,
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        success: function (data) {
+            location.href = "profile.html"
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
 }
 
 
