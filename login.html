@@ -103,52 +103,64 @@
 
               <h4 class="modal-title ">Dang Ki</h4>
             </div>
+            <form>
             <div class="modal-body">
-              <form>
+
                 <div class="mb-3">
                   <label for="Email" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" oninput="checkUser()" >
+                  <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" oninput="checkUser()" required maxlength="20">
                   <div id="register-err" class="form-text"></div>
                 </div>
                 <div class="mb-3">
                   <label for="Password" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="Password">
+                  <input type="password" class="form-control" id="Password" required maxlength="20">
                 </div>
                 <div class="mb-3">
                   <label for="RePassword" class="form-label">Re Pass</label>
-                  <input type="password" class="form-control" id="RePassword" oninput="checkPass()" >
+                  <input type="password" class="form-control" id="RePassword" oninput="checkPass()" required >
                   <div id="pass-err" class="form-text"></div>
                 </div>
                 <div class="mb-3">
                 <label for="PhoneNumber" class="form-label">PhoneNumber</label>
-                <input type="number" class="form-control" id="PhoneNumber">
+                <input type="text" class="form-control" id="PhoneNumber" oninput="checkSdt()" required>
+                  <div id="phonenumber-err" class="form-text"></div>
+
                 </div>
                 <div class="mb-3">
                   <label for="name" class="form-label">FullName</label>
-                  <input type="text" class="form-control" id="name">
+                  <input type="text" class="form-control" id="name" required>
+
                 </div>
                 <div class="mb-3">
                   <label for="Date" class="form-label">DateOfBirth</label>
-                  <input type="datetime-local" class="form-control" id="Date">
+                  <input type="date" class="form-control" id="Date" required>
+
                 </div>
                 <div class="mb-3">
                   <label for="Address" class="form-label">Address</label>
-                  <input type="text" class="form-control" id="Address">
+                  <input type="text" class="form-control" id="Address" required>
+
                 </div>
                 <div class="mb-3">
-                  <label for="gender" class="form-label">Gender</label>
-                  <input type="text" class="form-control" id="gender">
+                  <label for="gender" class="form-label">Gender</label><br>
+                  <SELECT id="gender">
+                    <option>Nam</option>
+                    <option>Nữ</option>
+                  </SELECT>
+
                 </div>
                 <div class="mb-3">
-                  <label for="img" class="form-label">Img</label>
-                  <input type="text" class="form-control" id="img">
+                  <label for="img" class="form-label" >Img</label>
+                  <input type="text" class="form-control" id="img" required>
+
                 </div>
-              </form>
+
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-primary" onclick="register()">Register</button>
+              <button type="submit" class="btn btn-primary" onclick="dangki()">Register</button>
               <button type="button" class="btn btn-default" data-dismiss="modal">Quit</button>
             </div>
+            </form>
           </div>
 
         </div>

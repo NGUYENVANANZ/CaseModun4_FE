@@ -1,5 +1,6 @@
 showProfile();
 
+
 // show profile
 function showProfile() {
     $.ajax({
@@ -72,13 +73,23 @@ function showPage() {
             document.getElementById("page").innerHTML = str;
 
             for (let i = 0; i < data.length; i++) {
-                checkLike(data[i], i);
+                checkLike3(data[i], i);
             }
         },
         error: function (error) {
             console.log(error);
         }
     });
+}
+
+var Name = localStorage.getItem("Name");
+
+function checkLike3(post, id) {
+    for (let j = 0; j < post.likePages.length; j++) {
+        if (post.likePages[j].accounts.fullName == Name) {
+            document.getElementById(id).src = "images/like-blue.png";
+        }
+    }
 }
 
 showPage();
@@ -186,6 +197,7 @@ function xemtruocanhup() {
 
 }
 
+
 function Notification() {
     $.ajax({
         type: "Get",
@@ -232,9 +244,13 @@ function Notification() {
                 }
                 document.getElementById("notification1").innerHTML = str;
             }
+        },
+        error: function (error) {
+            console.log(error);
         }
-    }
+    });
 }
+
 
 function deletePost(id) {
     $.ajax({
@@ -262,8 +278,6 @@ function getpost(id) {
             document.getElementById("editimgpost").value = data.img;
             document.getElementById("edittext").value = data.text;
             document.getElementById("pagestatus").innerHTML = data.pageStatus.pageStatus;
-
-
         },
         error: function (error) {
             console.log(error);
@@ -272,7 +286,9 @@ function getpost(id) {
     });
 }
 
+
 Notification();
+
 
 function editpost() {
     let idPage = document.getElementById("idPage").value;
