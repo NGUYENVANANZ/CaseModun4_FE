@@ -41,8 +41,6 @@ function pageStatus() {
             }
 
             document.getElementById("status").innerHTML = str;
-
-
         },
         error: function (error) {
             console.log(error);

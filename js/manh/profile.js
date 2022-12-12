@@ -1,5 +1,7 @@
 showProfile();
 
+
+
 // show profile
 function showProfile() {
     $.ajax({
@@ -9,21 +11,22 @@ function showProfile() {
         success: function (data) {
             let str = data.img;
             let std = data.fullName;
-            document.getElementById("account-img").src= str;
-            document.getElementById("account-img2").src= str;
-            document.getElementById("account-img1").src= str;
-            document.getElementById("account-img3").src= str;
-            document.getElementById("name-user").innerHTML= data.fullName;
-            document.getElementById("name-user1").innerHTML= data.fullName;
-            document.getElementById("name-user2").innerHTML= data.fullName;
-            document.getElementById("name-user").innerHTML= std;
-            document.getElementById("name-user1").innerHTML= std;
+            document.getElementById("account-img").src = str;
+            document.getElementById("account-img2").src = str;
+            document.getElementById("account-img1").src = str;
+            document.getElementById("account-img3").src = str;
+            document.getElementById("name-user").innerHTML = data.fullName;
+            document.getElementById("name-user1").innerHTML = data.fullName;
+            document.getElementById("name-user2").innerHTML = data.fullName;
+            document.getElementById("name-user").innerHTML = std;
+            document.getElementById("name-user1").innerHTML = std;
         },
         error: function (error) {
             console.log(error);
         }
     });
 }
+
 function showPage() {
     $.ajax({
         type: "Get",
@@ -46,8 +49,8 @@ function showPage() {
             <div class="more">
         <div class="more-post-optns"><i class="fas fa-ellipsis-v"></i>
         <ul>
-        <li><i class="fa fa-pencil-square-o"></i>Edit Post</li>
-        <li><i class="fa fa-trash-o"></i>Delete Post</li>
+        <li><i class="fa fa-pencil-square-o" onclick="getpost(${data[i].id})" data-toggle="modal" data-target="#myModal2" ></i>Edit Post</li>
+        <li><i class="fa fa-trash-o" onclick="deletePost(${data[i].id})" ></i>Delete Post</li>
         </ul>
         </div>
         </div>
@@ -90,7 +93,7 @@ function showFriend() {
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
-            let demFriend =0;
+            let demFriend = 0;
             for (let i = 0; i < data.length; i++) {
                 str += `
                         <div class="first-friend">
@@ -100,9 +103,9 @@ function showFriend() {
                         </div>`
                 demFriend += 1;
                 document.getElementById("listfriend").innerHTML = str;
-                document.getElementById("iconfriend1").src= data[0].img;
-                document.getElementById("iconfriend2").src= data[1].img;
-                document.getElementById("iconfriend3").src= data[2].img;
+                document.getElementById("iconfriend1").src = data[0].img;
+                document.getElementById("iconfriend2").src = data[1].img;
+                document.getElementById("iconfriend3").src = data[2].img;
 
             }
             document.getElementById("demfriend").innerHTML = demFriend + " Friends";
@@ -126,11 +129,12 @@ function pageStatus() {
             let str = "";
             for (let i = 0; i < data.length; i++) {
                 str += `
-                <option value="${data[i].id}" >${data[i].pageStatus}</option>
+                <option value="${data[i].id}" id="pagestatus">${data[i].pageStatus}</option>
                 `
             }
 
             document.getElementById("status-profile").innerHTML = str;
+            document.getElementById("status-profile1").innerHTML = str;
 
 
         },
@@ -139,20 +143,22 @@ function pageStatus() {
         }
     });
 }
+
 pageStatus();
-function post(){
-    let fileimg =document.getElementById("imgpost").value
-    let text =document.getElementById("text").value
-    let id=document.getElementById("status-profile").value
+
+function post() {
+    let fileimg = document.getElementById("imgpost").value
+    let text = document.getElementById("text").value
+    let id = document.getElementById("status-profile").value
     let status = document.getElementById("status-profile").innerHTML
 
-let page ={
-    "text" : text,
-    "img"  : fileimg,
-    "pageStatus" : {
-        "id": id,
-        "pageStatus" : status
-    }
+    let page = {
+        "text": text,
+        "img": fileimg,
+        "pageStatus": {
+            "id": id,
+            "pageStatus": status
+        }
     }
 
     $.ajax({
@@ -163,20 +169,87 @@ let page ={
         data: JSON.stringify(page),
         success: function (data) {
             alert("Dang bai thanh cong")
-            location.href= "/CaseModun4_FE/Case_Module%204/profile.html?_ijt=p0p3p9fehcku2119ip4qc6i0mu&_ij_reload=RELOAD_ON_SAVE";
+            location.href = "/CaseModun4_FE/Case_Module%204/profile.html?_ijt=p0p3p9fehcku2119ip4qc6i0mu&_ij_reload=RELOAD_ON_SAVE";
         },
         error() {
             alert("err")
         }
     })
 }
-function xemtruocanhup(){
-    let fileimg =document.getElementById("imgpost").value
-    if (fileimg !== ""){
+
+function xemtruocanhup() {
+    let fileimg = document.getElementById("imgpost").value
+    if (fileimg !== "") {
         document.getElementById("imgpostdemo").innerHTML = '<img id="up" style="width: 362px ;height: 200px">';
-        document.getElementById("up").src=fileimg;
-    }else{
+        document.getElementById("up").src = fileimg;
+    } else {
         document.getElementById("imgpostdemo").innerHTML = '<img id="up" >';
     }
 
+}
+
+
+function deletePost(id) {
+    $.ajax({
+        type: "Post",
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        url: "http://localhost:8080/profiles/deletepost/" + id,
+        success: function () {
+            alert("xoa bai thanh cong")
+            location.href = "/CaseModun4_FE/Case_Module%204/profile.html?_ijt=p0p3p9fehcku2119ip4qc6i0mu&_ij_reload=RELOAD_ON_SAVE";
+        },
+        error() {
+            alert("err")
+        }
+    })
+}
+
+function getpost(id) {
+    $.ajax({
+        type: "Get",
+        url: "http://localhost:8080/profiles/geteditpost/" + id,
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+
+        success: function (data) {
+            document.getElementById("idPage").value = data.id;
+            document.getElementById("editimgpost").value = data.img;
+            document.getElementById("edittext").value = data.text;
+            document.getElementById("pagestatus").innerHTML = data.pageStatus.pageStatus;
+
+
+        },
+        error: function (error) {
+            console.log(error);
+            alert("deook")
+        }
+    });
+}
+
+
+function editpost() {
+    let idPage = document.getElementById("idPage").value;
+    let fileimg = document.getElementById("editimgpost").value
+    let text = document.getElementById("edittext").value
+    let id = document.getElementById("pagestatus").value
+
+    let PageDTO = {
+        "text": text,
+        "img": fileimg,
+    }
+
+
+    $.ajax({
+        type: "Post",
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        url: "http://localhost:8080/profiles/edit/" + idPage + "&" + id,
+        contentType: "application/json",
+        data: JSON.stringify(PageDTO),
+        success: function (data) {
+            alert("sua bai thanh cong")
+            location.href = "/CaseModun4_FE/Case_Module%204/profile.html?_ijt=p0p3p9fehcku2119ip4qc6i0mu&_ij_reload=RELOAD_ON_SAVE";
+        },
+        error: function (error) {
+            console.log(error)
+        }
+    })
 }

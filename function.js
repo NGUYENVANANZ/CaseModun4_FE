@@ -13,3 +13,4 @@ function darkModeON(){
 function LoadMoreToggle(){
     LoadMoreBackground.classList.toggle("loadMoreToggle");
 };
+
