@@ -1,7 +1,5 @@
 showProfile();
 
-
-
 // show profile
 function showProfile() {
     $.ajax({
@@ -188,7 +186,6 @@ function xemtruocanhup() {
 
 }
 
-<<<<<<< HEAD
 function Notification() {
     $.ajax({
         type: "Get",
@@ -235,7 +232,9 @@ function Notification() {
                 }
                 document.getElementById("notification1").innerHTML = str;
             }
-=======
+        }
+    }
+}
 
 function deletePost(id) {
     $.ajax({
@@ -263,23 +262,17 @@ function getpost(id) {
             document.getElementById("editimgpost").value = data.img;
             document.getElementById("edittext").value = data.text;
             document.getElementById("pagestatus").innerHTML = data.pageStatus.pageStatus;
->>>>>>> 08072189b98d999254b3b12f822777da0620ab51
 
 
         },
         error: function (error) {
             console.log(error);
-<<<<<<< HEAD
-=======
             alert("deook")
->>>>>>> 08072189b98d999254b3b12f822777da0620ab51
         }
     });
 }
 
-<<<<<<< HEAD
 Notification();
-=======
 
 function editpost() {
     let idPage = document.getElementById("idPage").value;
@@ -308,4 +301,4 @@ function editpost() {
         }
     })
 }
->>>>>>> 08072189b98d999254b3b12f822777da0620ab51
+
