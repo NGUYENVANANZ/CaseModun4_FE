@@ -62,13 +62,22 @@ function profilePost(id) {
             }
             document.getElementById("paged").innerHTML = str;
             for (let i = 0; i < data.length; i++) {
-                checkLike(data[i], i);
+                checkLike1(data[i], i);
             }
         },
         error: function (error) {
             console.log(error);
         }
     });
+}
+var Name = localStorage.getItem("Name");
+
+function checkLike1(post, id) {
+    for (let j = 0; j < post.likePages.length; j++) {
+        if (post.likePages[j].accounts.fullName == Name) {
+            document.getElementById(id).src = "images/like-blue.png";
+        }
+    }
 }
 
 
@@ -108,19 +117,22 @@ function profileFriend(id) {
 
 profileFriend(idFriend);
 
-function checkFriend(idFriend) {
+function checkFriend(idFriends) {
+
     $.ajax({
         type: "Get",
-        url: "http://localhost:8080/checkFriends/" + idFriend,
+        url: "http://localhost:8080/checkFriends/" + idFriends,
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
-            let str = `<a href="#" title="Add friend" data-toggle="tooltip" onclick="addFriend(idFriend)"><i class="fa fa-user-plus"></i></a>
-`
-            if (data.id == 1) {
-                str = `<button style="background-color: #1876f2">Friend</button><button onclick="unfriend(idFriend)" style="background-color: #9a9a9a">UnFriend</button>`
-            }
-            if (data.id == 2) {
-                str = `<button>-> Sent friend request</button><button onclick="unfriends(idFriend)" style="background-color: #9a9a9a">X cancel friend request</button>`
+            let str =""
+            if (data.friendStatus == null){
+                str = `<button title="Add friend" data-toggle="tooltip" onclick="addFriend(idFriend)"><i class="fa fa-user-plus"></i></button>`
+            }else if (data.friendStatus.id == 1) {
+                str = `<button style="background-color: #1876f2">Friend</button><button onclick="unfriends(${data.idFriend})" style="background-color: #9a9a9a">UnFriend</button>`
+            }else if (data.friendStatus.id == 2) {
+                str = `<button>-> Sent friend request</button><button onclick="unfriends(${data.idFriend})" style="background-color: #9a9a9a">X cancel friend request</button>`
+            } else {
+
             }
             document.getElementById("friendStatus").innerHTML = str;
         },
@@ -137,3 +149,59 @@ function logout() {
     localStorage.setItem("token", "")
     location.href = "login.html"
 }
+
+function Notification() {
+    $.ajax({
+        type: "Get",
+        url: "http://localhost:8080/notifications",
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        success: function (data) {
+            let str = "";
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].notificationType.id == 1) {
+                    str += `
+<div class="online-list">
+                <div class="online">
+                    <a onclick="pageFriend(${data[i].account1.id})"><img src="${data[i].account1.img}" alt=""></a>
+                </div>
+                <a onclick="pageFriend(${data[i].account1.id})"> ${data[i].account1.fullName} </a>
+                <a href="" style="color: black; margin-left: 5px"> đã comment bài viết của bạn</a>
+            </div>         
+`
+                } else if (data[i].notificationType.id == 2) {
+                    str += `<div class="online-list">
+                <div class="online">
+                    <a onclick="pageFriend(${data[i].account1.id})"><img src="${data[i].account1.img}" alt=""></a>
+                </div>
+                <a onclick="pageFriend(${data[i].account1.id})"> ${data[i].account1.fullName} </a>
+                <a href="" style="color: black; margin-left: 5px"> đã like một bài viết của bạn</a>
+            </div>`
+                } else {
+                    str += `
+    <div class="online-list">
+                <div class="online">
+                    <a onclick="pageFriend(${data[i].account1.id})"><img src="${data[i].account1.img}" alt=""></a>
+                
+                </div>
+                <div>
+                <a onclick="pageFriend(${data[i].account1.id})"> ${data[i].account1.fullName} </a>
+                <a href="" style="color: black; margin-left: 5px"> đã gửi lời mời kết bạn</a>
+                <div style="margin-left: 200px">
+               <button style="background-color: dodgerblue" onclick="newFriend(${data[i].account1.id}, ${data[i].id})">Chấp Nhận</button>
+               <button onclick="unfriend(${data[i].account1.id},${data[i].id})">Từ chối</button>
+</div>
+</div>
+            </div>
+`
+                }
+                document.getElementById("notification2").innerHTML = str;
+            }
+
+
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+Notification();

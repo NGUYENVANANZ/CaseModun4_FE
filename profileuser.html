@@ -24,12 +24,13 @@
 
     <div class="triangle_rose"></div>
 
+
 </head>
 <body>
 <nav class="navbar">
     <div class="nav-left"><a href="index.html"><img class="logo" src="images/logo.png" alt=""></a>
         <ul class="navlogo">
-            <li><img src="images/notification.png"></li>
+            <li><a type="button" data-toggle="modal" data-target="#myModal"><img src="images/notification.png"></a></li>
         </ul>
     </div>
     <div class="nav-right">
@@ -62,12 +63,12 @@
         <hr>
         <div class="settings-links">
             <img src="images/setting.png" alt="" class="settings-icon">
-            <a href="#">Settings & Privary <img src="images/arrow.png" alt=""></a>
+            <a data-toggle="modal" data-target="#myModal6" onclick="edit_id()">Settings & Privary <img src="images/arrow.png" alt=""></a>
         </div>
 
         <div class="settings-links">
             <img src="images/logout.png" alt="" class="settings-icon">
-            <a href="" onclick="logout()"> Logout <img src="images/arrow.png" alt=""></a>
+            <a onclick="logout()"> Logout <img src="images/arrow.png" alt=""></a>
         </div>
 
     </div>
@@ -168,18 +169,74 @@
     </div>
 </div>
 
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
 
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Notification</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" id="notification2">
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="myModal6">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Edit User</h4>
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" id="notification">
+                <input id="fullName" placeholder="Nhập name"><br>
+                <input id="address" placeholder="Nhập address"><br>
+                <input id="birthday" placeholder="Nhập birthday"><br>
+                <input id="gender" placeholder="Nhập gender"><br>
+                <input id="phoneNumber" placeholder="Nhập phoneNumber"><br>
+                <input id="img" placeholder="Nhập img"><br>
+                <input id="password" placeholder="Nhập password"><br>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="edit()" data-dismiss="modal">Edit</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 <footer id="footer">
     <p>&copy; Copyright 2021 - Socialbook All Rights Reserved</p>
 </footer>
-
+<script src="js/manh/login.js"></script>
 <script src="function.js"></script>
 <script src="js/dinh/profilePage.js"></script>
 <script src="js/an/account.js"></script>
 <script src="js/dinh/Like.js"></script>
 <script src="js/an/addFriend.js"></script>
 <script src="js/linh/search.js"></script>
+<script src="js/dinh/editUser.js"></script>
 
 </body>
 </html>
