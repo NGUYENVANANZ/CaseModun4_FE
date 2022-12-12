@@ -316,5 +316,9 @@ function editpost() {
             console.log(error)
         }
     })
+<<<<<<< HEAD
+}
+=======
 }
 
+>>>>>>> ccaf2c911ee5a41caba35cd017dc3fc63e04537a
