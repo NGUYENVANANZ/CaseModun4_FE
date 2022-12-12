@@ -117,19 +117,22 @@ function profileFriend(id) {
 
 profileFriend(idFriend);
 
-function checkFriend(idFriend) {
+function checkFriend(idFriends) {
+
     $.ajax({
         type: "Get",
-        url: "http://localhost:8080/checkFriends/" + idFriend,
+        url: "http://localhost:8080/checkFriends/" + idFriends,
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
-            let str = `<a href="#" title="Add friend" data-toggle="tooltip" onclick="addFriend(idFriend)"><i class="fa fa-user-plus"></i></a>
-`
-            if (data.id == 1) {
-                str = `<button style="background-color: #1876f2">Friend</button><button onclick="unfriend(idFriend)" style="background-color: #9a9a9a">UnFriend</button>`
-            }
-            if (data.id == 2) {
-                str = `<button>-> Sent friend request</button><button onclick="unfriends(idFriend)" style="background-color: #9a9a9a">X cancel friend request</button>`
+            let str =""
+            if (data.friendStatus == null){
+                str = `<button title="Add friend" data-toggle="tooltip" onclick="addFriend(idFriend)"><i class="fa fa-user-plus"></i></button>`
+            }else if (data.friendStatus.id == 1) {
+                str = `<button style="background-color: #1876f2">Friend</button><button onclick="unfriends(${data.idFriend})" style="background-color: #9a9a9a">UnFriend</button>`
+            }else if (data.friendStatus.id == 2) {
+                str = `<button>-> Sent friend request</button><button onclick="unfriends(${data.idFriend})" style="background-color: #9a9a9a">X cancel friend request</button>`
+            } else {
+
             }
             document.getElementById("friendStatus").innerHTML = str;
         },
