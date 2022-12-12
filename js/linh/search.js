@@ -8,6 +8,8 @@ $('#search').keypress(function (event) {
 
 function search() {
     let fullName = document.getElementById("search").value;
+    let text = document.getElementById("search").value;
+
 
     $.ajax({
         type: "Get",
@@ -32,7 +34,8 @@ function search() {
             console.log(error);
         }
     });
-
 }
+
+
 
 
