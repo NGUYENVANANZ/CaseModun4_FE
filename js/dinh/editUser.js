@@ -1,17 +1,17 @@
-function edit_id(id){
+function edit_id() {
+
     $.ajax({
-        type: "GET", headers: {
-            'Accept': 'application/json', 'Content-Type': 'application/json'
-        }
-        , url: "http://localhost:8080/edit/" + id, //xử lý khi thành công
+        type: "GET",
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')}
+        , url: "http://localhost:8080/edit", //xử lý khi thành công
         success: function (data) {
-            document.getElementById("id").value = data.id;
-            document.getElementById("name").value = data.name;
-            document.getElementById("Address").value = data.address;
-            document.getElementById("Birthday").value = data.birthday;
-            document.getElementById("Gender").value = data.gender;
-            document.getElementById("PhoneNumber").value = data.phoneNumber;
+            document.getElementById("fullName").value = data.fullName;
+            document.getElementById("address").value = data.address;
+            document.getElementById("birthday").value = data.birthday;
+            document.getElementById("gender").value = data.gender;
+            document.getElementById("phoneNumber").value = data.phoneNumber;
             document.getElementById("img").value = data.img;
+            document.getElementById("password").value = data.password;
 
         }, error: function (err) {
             console.log(err)
@@ -20,28 +20,39 @@ function edit_id(id){
 }
 
 function edit() {
-    document.getElementById("id").value = data.id;
-    document.getElementById("name").value = data.name;
-    document.getElementById("address").value = data.address;
-    document.getElementById("birthday").value = data.birthday;
-    document.getElementById("gender").value = data.gender;
-    document.getElementById("phoneNumber").value = data.phoneNumber;
-    document.getElementById("img").value = data.img;
+
+    let fullName = document.getElementById("fullName").value;
+    let address = document.getElementById("address").value;
+    let birthday = document.getElementById("birthday").value;
+    let gender = document.getElementById("gender").value;
+    let phoneNumber = document.getElementById("phoneNumber").value;
+    let img = document.getElementById("img").value;
+    let password = document.getElementById("password").value;
 
 
-    let account = {
-        id: id, name: name, address: address, birthday: birthday, gender: gender, phoneNumber: phoneNumber ,img: img
+    let accountEdit = {
+        fullName: fullName,
+        address: address,
+        birthday: birthday,
+        gender: gender,
+        phoneNumber: phoneNumber,
+        img: img,
+        password: password
     }
 
-    $.ajax({
-        type: "PUT", headers: {
-            'Accept': 'application/json', 'Content-Type': 'application/json'
-        }, url: "http://localhost:8080/edit", data: JSON.stringify(account), //xử lý khi thành công
-        success: function (data) {
+    console.log(accountEdit);
 
+    $.ajax({
+        type: "POST",
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        contentType: "application/json"
+        , url: "http://localhost:8080/editAccount",
+        data: JSON.stringify(accountEdit), //xử lý khi thành công
+
+        success: function (data) {
+            location.href = "index.html"
         }, error: function (err) {
             console.log(err)
         }
     })
-
 }
