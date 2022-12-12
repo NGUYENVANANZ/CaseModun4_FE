@@ -40,9 +40,9 @@ function profilePost(id) {
                     <small>${data[i].time}</small>
                 </div>
             </div>
-            <div>
-                <a href="#"><i class="fas fa-ellipsis-v"></i></a>
-            </div>
+<!--            <div>-->
+<!--                <a href="#"><i class="fas fa-ellipsis-v"></i></a>-->
+<!--            </div>-->
         </div>
         <div class="status-field">
             <p>${data[i].text} </p>
@@ -114,12 +114,13 @@ function checkFriend(idFriend) {
         url: "http://localhost:8080/checkFriends/" + idFriend,
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
-            let str = `<button type="button" style="background-color: #1876f2" onclick="addFriend(idFriend)"><p>Friends</p></button>`
+            let str = `<a href="#" title="Add friend" data-toggle="tooltip" onclick="addFriend(idFriend)"><i class="fa fa-user-plus"></i></a>
+`
             if (data.id == 1) {
                 str = `<button style="background-color: #1876f2">Friend</button><button onclick="unfriend(idFriend)" style="background-color: #9a9a9a">UnFriend</button>`
             }
             if (data.id == 2) {
-                str = `<p>-> Sent friend request</p><button onclick="unfriend(idFriend)" style="background-color: #9a9a9a">X cancel friend request</button>`
+                str = `<button>-> Sent friend request</button><button onclick="unfriends(idFriend)" style="background-color: #9a9a9a">X cancel friend request</button>`
             }
             document.getElementById("friendStatus").innerHTML = str;
         },
@@ -132,4 +133,7 @@ function checkFriend(idFriend) {
 checkFriend(idFriend);
 
 
-
+function logout() {
+    localStorage.setItem("token", "")
+    location.href = "login.html"
+}
