@@ -26,7 +26,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
 
-
 </head>
 <style>
     .imgprofile {
@@ -349,41 +348,20 @@
                         <select id="status" style="width: 18px; height: 15px; margin-left: 5px; "></select>
                         <div class="newpst-input" style="margin-left: 75px">
                             <form method="post">
-                                <textarea rows="2" placeholder="Share some what you are thinking?"></textarea>
+                                <textarea rows="2" placeholder="Share some what you are thinking?" id="text"></textarea>
                             </form>
                         </div>
                         <div class="attachments">
                             <ul>
-
                                 <li>
-                                    <i class="fa fa-music"></i>
-                                    <label class="fileContainer">
-                                        <input type="file">
-                                    </label>
+                                    <i class="fa fa-image" style="margin-top: 15px">
+                                        <input type="text" id="imgpost" oninput="xemtruocanhup()"></i>
                                 </li>
-                                <li>
-                                    <i class="fa fa-image"></i>
-                                    <label class="fileContainer">
-                                        <input type="file">
-                                    </label>
-                                </li>
-                                <li>
-                                    <i class="fa fa-video-camera"></i>
-                                    <label class="fileContainer">
-                                        <input type="file">
-                                    </label>
-                                </li>
-                                <li>
-                                    <i class="fa fa-camera"></i>
-                                    <label class="fileContainer">
-                                        <input type="file">
-                                    </label>
-                                </li>
-<!--                                <li class="preview-btn">-->
-<!--                                    <button class="post-btn-preview" type="submit" data-ripple="">Preview</button>-->
-<!--                                </li>-->
                             </ul>
-                            <button class="post-btn" type="submit" data-ripple="">Post</button>
+                            <div id="imgpostdemo" >
+
+                            </div>
+                            <button class="post-btn" type="submit" data-ripple="" onclick="postprofile()">Post</button>
                         </div>
                     </div>
                 </div><!-- add post new box -->
@@ -534,6 +512,6 @@
 <script src="js/an/addFriend.js"></script>
 <script src="js/dinh/editUser.js"></script>
 <script src="js/dinh/listAccountLike.js"></script>
-
+<script src="js/manh/post.js"></script>
 </html>
 
