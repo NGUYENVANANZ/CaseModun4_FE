@@ -34,12 +34,11 @@
     </div>
     <div class="nav-right">
         <div class="search-box">
-            <ul>
-                <li>
+
                     <input type="text" id="search" oninput="search()" placeholder="Search">
                     <a onclick="search()" type="button" data-toggle="modal" data-target="#myModal1" >
                         <img  src="images/search.png" ></a>
-            </ul>
+
         </div>
         <div class="profile-image online" onclick="UserSettingToggle()">
             <img  id="account-img1d" alt="">
@@ -68,7 +67,7 @@
 
         <div class="settings-links">
             <img src="images/logout.png" alt="" class="settings-icon">
-            <a onclick="logout()">Logout <img src="images/arrow.png" alt=""></a>
+            <a href="" onclick="logout()"> Logout <img src="images/arrow.png" alt=""></a>
         </div>
 
     </div>
@@ -80,7 +79,7 @@
     <div class="dashboard">
         <div class="left-dashboard">
             <img   class="dashboard-img" id="imgFriend" alt="">
-            <div class="left-dashboard-info">
+            <div class="left-dashboard-info" style="margin-top: 100px">
                 <h3 id="friendName"></h3>
                 <p id="demfriends"></p>
                 <div class="mutual-friend-images" >
@@ -135,6 +134,8 @@
     </div>
 </div>
 
+
+
 <!-- The Modal -->
 <div class="modal" id="myModal1">
     <div class="modal-dialog">
@@ -166,6 +167,7 @@
         </div>
     </div>
 </div>
+
 
 
 <footer id="footer">

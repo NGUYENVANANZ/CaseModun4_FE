@@ -56,6 +56,9 @@ function showPage() {
     $.ajax({
         type: "Get",
         url: "http://localhost:8080/page",
+
+        // url: "http://localhost:8080/search",
+
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
@@ -71,9 +74,9 @@ function showPage() {
                     <small>${data[i].time}</small>
                 </div>
             </div>  
-            <div>
-                <a href="#"><i class="fas fa-ellipsis-v"></i></a>
-            </div>
+<!--            <div>-->
+<!--                <a href="#"><i class="fas fa-ellipsis-v"></i></a>-->
+<!--            </div>-->
         </div>
         <div class="status-field">
             <p>${data[i].text} </p>
