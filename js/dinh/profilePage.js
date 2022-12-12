@@ -62,13 +62,22 @@ function profilePost(id) {
             }
             document.getElementById("paged").innerHTML = str;
             for (let i = 0; i < data.length; i++) {
-                checkLike(data[i], i);
+                checkLike1(data[i], i);
             }
         },
         error: function (error) {
             console.log(error);
         }
     });
+}
+var Name = localStorage.getItem("Name");
+
+function checkLike1(post, id) {
+    for (let j = 0; j < post.likePages.length; j++) {
+        if (post.likePages[j].accounts.fullName == Name) {
+            document.getElementById(id).src = "images/like-blue.png";
+        }
+    }
 }
 
 
