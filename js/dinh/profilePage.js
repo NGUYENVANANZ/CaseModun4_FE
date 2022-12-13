@@ -180,8 +180,8 @@ function Notification() {
                 <a onclick="pageFriend(${data[i].account1.id})"> ${data[i].account1.fullName} </a>
                 <a href="" style="color: black; margin-left: 5px"> đã gửi lời mời kết bạn</a>
                 <div style="margin-left: 200px">
-               <button style="background-color: dodgerblue" onclick="newFriend(${data[i].account1.id}, ${data[i].id})">Chấp Nhận</button>
-               <button onclick="unfriend(${data[i].account1.id},${data[i].id})">Từ chối</button>
+               <button style="background-color: dodgerblue" onclick="newFriend2(${data[i].account1.id}, ${data[i].id})">Chấp Nhận</button>
+               <button onclick="unfriend2(${data[i].account1.id},${data[i].id})">Từ chối</button>
 </div>
 </div>
             </div>
@@ -198,3 +198,32 @@ function Notification() {
     });
 }
 Notification();
+
+function newFriend2(idFriend, idNo){
+    $.ajax({
+        type: "Post",
+        url: "http://localhost:8080/newFriend/" + idFriend + "&" + idNo,
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        success: function (data) {
+            location.href = "index.html"
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+
+}
+
+function unfriend2(idFriend, iNo){
+    $.ajax({
+        type: "Post",
+        url: "http://localhost:8080/unFriend/" + idFriend + "&" + iNo,
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        success: function (data) {
+            location.href = "index.html"
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}

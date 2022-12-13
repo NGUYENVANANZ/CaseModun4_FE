@@ -25,10 +25,10 @@ function search() {
                     str += `
                 <div class="online-list">
                 <div class="online" >
-                    <a onclick="pageFriend(${data[i].account.id})"><img src="${data[i].account.img}" alt=""></a>
+                    <a onclick="checkPage(${data[i].account.id})"><img src="${data[i].account.img}" alt=""></a>
                 </div>
                 <div > 
-                 <a onclick="pageFriend(${data[i].account.id})"> ${data[i].account.fullName} </a>
+                 <a onclick="checkPage(${data[i].account.id})"> ${data[i].account.fullName} </a>
                  <br>
                <a onclick="showPageText(${data[i].id})" style="color: red">${limit(data[i].text, 20)}</a>            
                 </div>
@@ -61,9 +61,9 @@ function search() {
                     str += `
 <div class="online-list">
                 <div class="online">
-                    <a onclick="pageFriend(${data[i].id})"><img src="${data[i].img}" alt=""></a>
+                    <a onclick="checkPage(${data[i].id})"><img src="${data[i].img}" alt=""></a>
                 </div>
-                <a onclick="pageFriend(${data[i].id})"> ${data[i].fullName} </a>
+                <a onclick="checkPage(${data[i].id})"> ${data[i].fullName} </a>
             </div>`
                     count++;
                 }

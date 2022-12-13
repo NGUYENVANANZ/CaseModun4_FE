@@ -597,7 +597,7 @@
     <hr>
     <div class="settings-links">
       <img src="images/setting.png" alt="" class="settings-icon">
-      <a href="#" data-toggle="modal" data-target="#myModal6">Settings & Privary <img src="images/arrow.png" alt=""></a>
+      <a data-toggle="modal" data-target="#myModal6" onclick="edit_id()">Settings & Privary <img src="images/arrow.png" alt=""></a>
     </div>
 
     <div class="settings-links">
@@ -709,10 +709,42 @@
   </div>
 </div>
 
+<div class="modal" id="myModal6">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Edit User</h4>
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <input id="fullName" placeholder="Nhập name"><br>
+        <input id="address" placeholder="Nhập address"><br>
+        <input id="birthday" placeholder="Nhập birthday"><br>
+        <input id="gender" placeholder="Nhập gender"><br>
+        <input id="phoneNumber" placeholder="Nhập phoneNumber"><br>
+        <input id="img" placeholder="Nhập img"><br>
+        <input id="password" placeholder="Nhập password"><br>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="edit()" data-dismiss="modal">Edit</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
 </body>
 <script src="js/manh/showmyfriends.js"></script>
 <script src="function.js"></script>
 <script src="js/manh/login.js"></script>
-
+<script src="js/dinh/editUser.js"></script>
 </html>
