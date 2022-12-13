@@ -46,7 +46,8 @@ function showPage() {
                 </div>
             </div>
             <div class="more">
-        <div class="more-post-optns"><i class="fas fa-ellipsis-v"></i>
+        <div class="more-post-optns">
+        <i class="fas fa-ellipsis-v"></i>
         <ul>
         <li><i class="fa fa-pencil-square-o" onclick="getpost(${data[i].id})" data-toggle="modal" data-target="#myModal2" ></i>Edit Post</li>
         <li><i class="fa fa-trash-o" onclick="deletePost(${data[i].id})" ></i>Delete Post</li>
@@ -60,11 +61,8 @@ function showPage() {
         </div>
         <div class="post-reaction">
             <div class="activity-icons">
-                <div><a onclick="like(${data[i].id}, ${i})" ><img src="images/like.png" alt="" id="${i}" ></a><p id="${i}p">${data[i].likePages.length}</p></div>
+                <div><a onclick="like(${data[i].id}, ${i})" ><img src="images/like.png" alt="" id="${i}" ></a><a data-toggle="modal" data-target="#myModal7" onclick="showListLike(${data[i].id})"  id="${i}p">${data[i].likePages.length}</a></div>
                 <div><img src="images/comments.png" alt="">${data[i].cmts.length}</div>
-            </div>
-            <div class="post-profile-picture">
-                <img src="images/profile-pic.png " alt=""> <i class=" fas fa-caret-down"></i>
             </div>
         </div>
     </div>
@@ -102,24 +100,19 @@ function showFriend() {
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
-            let demFriend = 0;
+            let demFriend =`<p>${data.length} Friends</p>`;
+            document.getElementById("demfriend").innerHTML = demFriend;
             for (let i = 0; i < data.length; i++) {
                 str += `
                         <div class="first-friend">
                             <img src="${data[i].img}" alt="">
                             <p>${data[i].fullName}</p>
-                     
                         </div>`
-                demFriend += 1;
-                document.getElementById("listfriend").innerHTML = str;
-                document.getElementById("iconfriend1").src = data[0].img;
-                document.getElementById("iconfriend2").src = data[1].img;
-                document.getElementById("iconfriend3").src = data[2].img;
-
             }
-            document.getElementById("demfriend").innerHTML = demFriend + " Friends";
-
-
+            document.getElementById("listFriend").innerHTML = str;
+            document.getElementById("iconfriend1").src = data[0].img;
+            document.getElementById("iconfriend2").src = data[1].img;
+            document.getElementById("iconfriend3").src = data[2].img;
         },
         error: function (error) {
             console.log(error);
@@ -253,13 +246,14 @@ function Notification() {
 
 
 function deletePost(id) {
+    alert(id)
     $.ajax({
-        type: "Post",
+        type: "Get",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         url: "http://localhost:8080/profiles/deletepost/" + id,
         success: function () {
             alert("xoa bai thanh cong")
-            location.href = "/CaseModun4_FE/Case_Module%204/profile.html?_ijt=p0p3p9fehcku2119ip4qc6i0mu&_ij_reload=RELOAD_ON_SAVE";
+            location.href = "profile.html";
         },
         error() {
             alert("err")
@@ -310,12 +304,13 @@ function editpost() {
         data: JSON.stringify(PageDTO),
         success: function (data) {
             alert("sua bai thanh cong")
-            location.href = "/CaseModun4_FE/Case_Module%204/profile.html?_ijt=p0p3p9fehcku2119ip4qc6i0mu&_ij_reload=RELOAD_ON_SAVE";
+            location.href = "profile.html";
         },
         error: function (error) {
             console.log(error)
         }
     })
 }
+
 
 

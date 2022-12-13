@@ -50,11 +50,8 @@ function profilePost(id) {
         </div>
         <div class="post-reaction">
             <div class="activity-icons">
-                <div><a onclick="like(${data[i].id}, ${i})" ><img src="images/like.png" alt="" id="${i}" ></a><p id="${i}p">${data[i].likePages.length}</p></div>
+                <div><a onclick="like(${data[i].id}, ${i})" ><img src="images/like.png" alt="" id="${i}" ></a><a data-toggle="modal" data-target="#myModal7" onclick="showListLike(${data[i].id})"  id="${i}p">${data[i].likePages.length}</a></div>
                 <div><img src="images/comments.png" alt="">${data[i].cmts.length}</div>
-            </div>
-            <div class="post-profile-picture">
-                <img src="images/profile-pic.png " alt=""> <i class=" fas fa-caret-down"></i>
             </div>
         </div>
     </div>
@@ -90,7 +87,8 @@ function profileFriend(id) {
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
-            let demFriend = 0;
+            let demFriend = `<p>${data.length} Friends</p>`;
+            document.getElementById("demfriends").innerHTML = demFriend;
             for (let i = 0; i < data.length; i++) {
                 str += `
                         <div class="first-friend">
@@ -98,16 +96,11 @@ function profileFriend(id) {
                             <p>${data[i].fullName}</p>
                      
                         </div>`
-                demFriend += 1;
-                document.getElementById("listfriends").innerHTML = str;
-                document.getElementById("iconfriend1d").src = data[0].img;
-                document.getElementById("iconfriend2d").src = data[1].img;
-                document.getElementById("iconfriend3d").src = data[2].img;
-
             }
-            document.getElementById("demfriends").innerHTML = demFriend + " Friends";
-
-
+            document.getElementById("listfriends").innerHTML = str;
+            document.getElementById("iconfriend1d").src = data[0].img;
+            document.getElementById("iconfriend2d").src = data[1].img;
+            document.getElementById("iconfriend3d").src = data[2].img;
         },
         error: function (error) {
             console.log(error);

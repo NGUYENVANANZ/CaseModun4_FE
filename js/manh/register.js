@@ -65,6 +65,28 @@ function checkUser() {
         }
     })
 }
+function checkSdt(){
+    let phonenummber= document.getElementById("PhoneNumber").value;
+    $.ajax({
+        type: "GET",
+        headers: {
+            //kiểu dữ liệu nhận về
+            // 'Accept': 'application/json',
+            // kiểu truyền đi
+            'Content-Type': 'application/json'
+        },
+        url: "http://localhost:8080/registers/checkPhonenumber",
+        data: {
+            phoneNumber : phonenummber,
+        },
+        success: function (data) {
+            document.getElementById("phonenumber-err").innerHTML = ""
+        },
+        error() {
+            document.getElementById("phonenumber-err").innerHTML = `  <p style="color: red">The phonenumber has already use !</p>`
+        }
+    })
+}
 
 function checkPass(){
     let pass = document.getElementById("Password").value
@@ -80,13 +102,29 @@ function checkPass(){
     }
 }
 
-function checkTrong(){
+function  checkTrong(){
     let userName1 = document.getElementById("Email").value;
     let passWord1 = document.getElementById("Password").value;
+    let repassWord1 = document.getElementById("RePassword").value;
     let phonenumber1 = document.getElementById("PhoneNumber").value;
     let fullname1 = document.getElementById("name").value;
     let date1 = document.getElementById("Date").value;
-    let gender1 = document.getElementById("gender").value;
     let Address1 = document.getElementById("Address").value;
     let img1 = document.getElementById("img").value;
+
+    if (repassWord1 ==="" ||userName1 ===""|| passWord1===""||phonenumber1===""||fullname1===""||date1===""||Address1===""||img1===""){
+
+        return true;
+    }else {
+        return false;
+    }
+
+}
+
+function dangki(){
+    if (checkTrong()){
+        checkTrong()
+    }else {
+        register();
+    }
 }

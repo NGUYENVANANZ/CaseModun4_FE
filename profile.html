@@ -22,14 +22,10 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
     <div class="triangle_rose">
     </div>
     <link rel="stylesheet" href="main.min.css">
     <link rel="stylesheet" href="style1.css">
-
-
-
 </head>
 <style>
 
@@ -404,7 +400,7 @@
 <nav class="navbar">
     <div class="nav-left"><a href="index.html"><img class="logo" src="images/logo.png" alt=""></a>
         <ul class="navlogo">
-            <li><a data-toggle="modal" data-target="#myModal6" onclick="edit_id()"><img src="images/notification.png"></a></li>
+            <li><a data-toggle="modal" data-target="#myModal"  onclick="edit_id()"><img src="images/notification.png"></a></li>
         </ul>
     </div>
     <div class="nav-right">
@@ -438,7 +434,7 @@
         <hr>
         <div class="settings-links">
             <img src="images/setting.png" alt="" class="settings-icon">
-            <a href="#">Settings & Privary <img src="images/arrow.png" alt=""></a>
+            <a href="#" data-toggle="modal" data-target="#myModal6">Settings & Privary <img src="images/arrow.png" alt=""></a>
         </div>
 
         <div class="settings-links">
@@ -469,6 +465,7 @@
                     <img id="iconfriend4" alt="">
                 </div>
             </div>
+
         </div>
         <div class="right-dashboard-info">
             <div class="right-dashboard-info-top">
@@ -493,11 +490,11 @@
             <div class="left-profile-sidebar-top gallery">
                 <div class="heading-link profile-heading-link">
                     <h4>Friends</h4>
-                    <a href="">All Friends</a>
+                    <a href="showmyfriends.html">All Friends</a>
                 </div>
 
                 <div class="gallery-photos">
-                    <div class="gallery-photos-rowFirst" id="listfriend">
+                    <div class="gallery-photos-rowFirst" id="listFriend">
 
                     </div>
                 </div>
@@ -691,6 +688,31 @@
         </div>
     </div>
 </div>
+<div class="modal" id="myModal7">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">List Like</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" id="showListLike">
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
 <footer id="footer">
     <p>&copy; Copyright 2021 - Socialbook All Rights Reserved</p>
 </footer>
@@ -700,6 +722,6 @@
 <script src="js/linh/search.js"></script>
 <script src="js/manh/login.js"></script>
 <script src="js/dinh/editUser.js"></script>
-
+<script src="js/dinh/listAccountLike.js"></script>
 </body>
 </html>
