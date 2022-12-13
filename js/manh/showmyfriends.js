@@ -158,3 +158,52 @@ function Notification1() {
 
 Notification1();
 
+
+function searchbyname() {
+    let name = document.getElementById("textsearch").value
+
+    $.ajax({
+        type: "Get",
+        url: "http://localhost:8080/profiles/searchfriends/" + name,
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        success: function (data) {
+            let str = ""
+            if (data.length===0){
+
+                str = `<p>Không có bạn bè hiển thị</p>`
+            }else {
+            for (let i = 0; i < data.length; i++) {
+                str+=`
+                                        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="friend-block">
+            <div class="more-opotnz">
+              <i class="fa fa-ellipsis-h"></i>
+              <ul>
+                <li><a href="#" title="" onclick="unfriends1(${data[i].account1.id})">Unfriends</a></li>
+               
+              </ul>
+            </div>
+            <figure>
+              <img src="${data[i].account1.img}" alt="" width="100" height="100">
+            </figure>
+
+            <div class="frnd-meta">
+              <div class="frnd-name">
+                <a href="#" title="" style="margin-top: 10px" onclick="pageFriend1(${data[i].account1.id})">${data[i].account1.fullName}</a>
+                <span >${data[i].account1.address}</span>
+              </div>
+              <a class="send-mesg" href="#" title="">Message</a>
+            </div>
+          </div>
+        </div>
+                `}
+                document.getElementById("listfriend2").innerHTML = str;
+            }
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+
+}
+
