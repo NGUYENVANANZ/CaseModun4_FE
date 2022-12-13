@@ -168,9 +168,9 @@ function searchbyname() {
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = ""
-            if (data.length===0){
-
+            if (data.length==0){
                 str = `<p>Không có bạn bè hiển thị</p>`
+                document.getElementById("listfriend2").innerHTML = str;
             }else {
             for (let i = 0; i < data.length; i++) {
                 str+=`
