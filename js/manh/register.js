@@ -113,13 +113,7 @@ function  checkTrong(){
     let img1 = document.getElementById("img").value;
 
     if (repassWord1 ==="" ||userName1 ===""|| passWord1===""||phonenumber1===""||fullname1===""||date1===""||Address1===""||img1===""){
-        // document.getElementById("checktrong1").innerHTML=`  <p class="btn-danger" style="color: white">Email là bắt buộc !</p>`
-        // document.getElementById("checktrong2").innerHTML=`  <p class="btn-danger" style="color: white">Vui lòng nhập password !</p>`
-        // document.getElementById("checktrong3").innerHTML=`  <p class="btn-danger" style="color: white">Vui lòng nhập password !</p>`
-        // document.getElementById("checktrong4").innerHTML=`  <p class="btn-danger" style="color: white">Số điện thoại là bắt buộc !</p>`
-        // document.getElementById("checktrong5").innerHTML=`  <p class="btn-danger" style="color: white">Tên đầy đủ là bắt buộc !</p>`
-        // document.getElementById("checktrong6").innerHTML=`  <p class="btn-danger" style="color: white">Không được để trống trường này !</p>`
-        // document.getElementById("checktrong7").innerHTML=`  <p class="btn-danger" style="color: white">Không được để trống trường này !</p>`
+
         return true;
     }else {
         return false;

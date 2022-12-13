@@ -3,8 +3,566 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://kit.fontawesome.com/ef7e2b893b.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.min.css">
 </head>
+<style>
+
+  /*--- friend list style 2 ---*/
+  .friend-block {
+    background: #fff;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 25px 15px;
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ede9e9;
+  }
+  .friend-block > figure {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+    width: 84px;
+  }
+  .friend-block .frnd-meta {
+    padding: 0 0 0 10px;
+    vertical-align: middle;
+    width: 58%;
+  }
+  .friend-block .frnd-meta .frnd-name {
+    margin-bottom: 10px;
+    position: unset;
+  }
+  .friend-block > figure img {
+    border-radius: 100%;
+  }
+  .friend-block .more-opotnz {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+  }
+  .friend-block .more-opotnz > ul {
+    bottom: auto;
+    right: 0;
+    top: 25px;
+  }
+  .frnd-meta {
+    display: inline-block;
+    padding: 0 15px 20px;
+    position: relative;
+    width: 100%;
+  }
+  .frnd-meta > img {
+    border: 2px solid #fff;
+    border-radius: 100%;
+    display: inline-block;
+    margin-top: -40px;
+    position: relative;
+    vertical-align: middle;
+    z-index: 2;
+  }
+  .frnd-name {
+    display: inline-block;
+    left: 117px;
+    position: absolute;
+    text-align: left;
+    top: 10px;
+  }
+  .frnd-name > a {
+    color: #313345;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    width: 100%;
+    transition: all 0.2s linear 0s;
+  }
+  .frnd-name > span {
+    display: inline-block;
+    font-size: 12px;
+  }
+  .frnd-info {
+    display: inline-block;
+    list-style: outside none none;
+    margin: 20px 0;
+    padding: 0;
+    width: 100%;
+  }
+  .frnd-info > li {
+    display: inline-block;
+    font-size: 13px;
+    padding: 2px 0;
+    width: 100%;
+  }
+  .frnd-info > li span {
+    color: #515365;
+    display: inline-block;
+    font-weight: 500;
+    vertical-align: middle;
+    width: 65px;
+  }
+  .frnd-meta > a {
+    border-radius: 30px;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    position: relative;
+  }
+  .more-opotnz {
+    cursor: pointer;
+    float: right;
+    line-height: initial;
+    margin-top: 4px;
+    position: relative;
+  }
+
+  .more-opotnz > ul li a {
+    color: #878787;
+    transition: all 0.2s linear 0s;
+  }
+  .more-opotnz::after {
+    background: #eee none repeat scroll 0 0;
+    border-radius: 100%;
+    content: "";
+    height: 30px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.2s linear 0s;
+    width: 30px;
+    z-index: 0;
+  }
+  .more-opotnz:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .more-opotnz > i {
+    color: #b9b9b9;
+    font-size: 18px;
+    position: relative;
+    z-index: 1;
+  }
+  .more-opotnz > ul {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 4px;
+    bottom: 20px;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+    font-size: 12px;
+    list-style: outside none none;
+    margin: 0;
+    opacity: 0;
+    padding: 7px 12px;
+    position: absolute;
+    right: 0;
+    transition: all 0.2s linear 0s;
+    visibility: hidden;
+    width: 145px;
+    z-index: 3;
+  }
+  .more-opotnz li {
+    display: inline-block;
+    padding: 5px 0;
+    width: 100%;
+  }
+  .more-opotnz:hover > ul {
+    opacity: 1;
+    visibility: visible;
+  }
+  .more-opotnz > ul li a {
+    color: #878787;
+    transition: all 0.2s linear 0s;
+    text-transform: capitalize;
+  }
+  .option-list {
+    cursor: pointer;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    text-align: right;
+    top: 7px;
+    width: 30px;
+    float: right;
+  }
+  .option-list > ul {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    list-style: outside none none;
+    margin: 0;
+    opacity: 0;
+    padding: 10px 15px;
+    position: absolute;
+    right: -20px;
+    text-align: left;
+    top: 130%;
+    transition: all 0.2s linear 0s;
+    visibility: hidden;
+    width: 160px;
+    z-index: 22;
+  }
+  .option-list ul li {
+    display: inline-block;
+    font-size: 13px;
+    line-height: initial;
+    width: 100%;
+    position: relative;
+  }
+
+  .option-list ul li i {
+    display: inline-block;
+    font-size: 10px;
+    left: -4px;
+    position: absolute;
+    top: 7px;
+    vertical-align: middle;
+  }
+  .option-list ul li.active a {
+    padding-left: 10px;
+  }
+
+  .option-list:hover ul {
+    opacity: 1;
+    visibility: visible;
+  }
+  .option-list > i {
+    font-size: 16px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .option-list ul li a {
+    display: inline-block;
+    padding: 6px 0;
+    transition: all 0.2s linear 0s;
+    width: 100%;
+    font-size: 11.5px;
+  }
+  .option-list::after {
+    background: #eee none repeat scroll 0 0;
+    border-radius: 100%;
+    content: "";
+    height: 30px;
+    left: 91%;
+    line-height: 30px;
+    position: absolute;
+    top: 49%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.2s linear 0s;
+    width: 30px;
+    z-index: 0;
+  }
+  .option-list:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  /*--- friend list style 2 ---*/
+  .friend-block {
+    background: #fff;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 25px 15px;
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ede9e9;
+  }
+  .friend-block > figure {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+    width: 84px;
+  }
+  .friend-block .frnd-meta {
+    padding: 0 0 0 10px;
+    vertical-align: middle;
+    width: 58%;
+  }
+  .friend-block .frnd-meta .frnd-name {
+    margin-bottom: 10px;
+    position: unset;
+  }
+  .friend-block > figure img {
+    border-radius: 100%;
+  }
+  .friend-block .more-opotnz {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+  }
+  .friend-block .more-opotnz > ul {
+    bottom: auto;
+    right: 0;
+    top: 25px;
+  }
+  .central-meta{padding: 15px;}
+
+  /*--- central posts meta box ---*/
+  .central-meta {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #ede9e9;
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 20px;
+    position: relative;
+  }
+
+  .central-meta.padding30 {
+    padding: 30px;
+  }
+
+  .more-opotnz {
+    cursor: pointer;
+    float: right;
+    line-height: initial;
+    margin-top: 4px;
+    position: relative;
+  }
+
+  .more-opotnz > ul li a {
+    color: #878787;
+    transition: all 0.2s linear 0s;
+  }
+  .more-opotnz::after {
+    background: #eee none repeat scroll 0 0;
+    border-radius: 100%;
+    content: "";
+    height: 30px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.2s linear 0s;
+    width: 30px;
+    z-index: 0;
+  }
+  .more-opotnz:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .more-opotnz > i {
+    color: #b9b9b9;
+    font-size: 18px;
+    position: relative;
+    z-index: 1;
+  }
+  .more-opotnz > ul {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 4px;
+    bottom: 20px;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+    font-size: 12px;
+    list-style: outside none none;
+    margin: 0;
+    opacity: 0;
+    padding: 7px 12px;
+    position: absolute;
+    right: 0;
+    transition: all 0.2s linear 0s;
+    visibility: hidden;
+    width: 145px;
+    z-index: 3;
+  }
+  .more-opotnz li {
+    display: inline-block;
+    padding: 5px 0;
+    width: 100%;
+  }
+  .more-opotnz:hover > ul {
+    opacity: 1;
+    visibility: visible;
+  }
+  .more-opotnz > ul li a {
+    color: #878787;
+    transition: all 0.2s linear 0s;
+    text-transform: capitalize;
+  }
+
+  /*--- friend list style 2 ---*/
+  .friend-block {
+    background: #fff;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 25px 15px;
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ede9e9;
+  }
+  .friend-block > figure {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+    width: 84px;
+  }
+  .friend-block .frnd-meta {
+    padding: 0 0 0 10px;
+    vertical-align: middle;
+    width: 58%;
+  }
+  .friend-block .frnd-meta .frnd-name {
+    margin-bottom: 10px;
+    position: unset;
+  }
+  .friend-block > figure img {
+    border-radius: 100%;
+  }
+  .friend-block .more-opotnz {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+  }
+  .friend-block .more-opotnz > ul {
+    bottom: auto;
+    right: 0;
+    top: 25px;
+  }
+
+  .row.merged20{
+    margin-right: -10px;
+    margin-left: -10px;
+  }
+  .row.merged20 > div{
+    padding: 0 10px;
+  }
+
+  .row.merged10 > div{
+    padding: 0 5px;
+  }
+
+  .row.merged10 {
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+
+  .row.merged20 .row.merged20 {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .row.merged20 .row.merged20 {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+
+  .row.merged20{
+    margin-right: -10px;
+    margin-left: -10px;
+  }
+  .row.merged20 > div{
+    padding: 0 10px;
+  }
+
+  .row.merged10 > div{
+    padding: 0 5px;
+  }
+
+  .row.merged10 {
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+
+  .row.merged20 .row.merged20 {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .row.merged20 .row.merged20 {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .central-meta{padding: 15px;}
+  .central-meta {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #ede9e9;
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 20px;
+    position: relative;
+  }
+
+  .central-meta.padding30 {
+    padding: 30px;
+  }
+  .f-title i {
+    margin-right: 5px;
+  }
+  /*--- timeline friends ---*/
+  .title-block {
+    display: inline-block;
+    line-height: 38px;
+    width: 100%;
+  }
+  .title-block h5 {
+    color: #515365;
+    display: inline-block;
+    font-size: 16px;
+    line-height: initial;
+    margin-bottom: 0;
+    vertical-align: middle;
+    position: relative;
+  }
+
+  .title-block h5 > span {
+    background: #7750f8 none repeat scroll 0 0;
+    border-radius: 100%;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    height: 25px;
+    line-height: 25px;
+    position: absolute;
+    right: -30px;
+    text-align: center;
+    top: 0;
+    width: 25px;
+  }
+
+  .title-block form {
+    display: inline-block;
+    line-height: initial;
+    margin-top: 4px;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+  }
+  .title-block form input {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 10px 15px;
+    width: 100%;
+  }
+  .title-block form button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color: inherit;
+    padding: 0;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+</style>
 <body>
 <nav class="navbar">
   <div class="nav-left"><img class="logo" src="images/logo.png" alt="">
@@ -16,8 +574,8 @@
   </div>
   <div class="nav-right">
     <div class="search-box">
-      <img src="images/search.png" alt="">
       <input type="text" placeholder="Search">
+      <img src="images/search.png" alt="">
     </div>
     <div class="profile-image online" onclick="UserSettingToggle()">
       <img  id="account-img" alt="">
@@ -30,7 +588,7 @@
         <img  id="account-img1" alt="">
         <div>
           <p id="name-user1"> </p>
-          <a href="#">See your profile</a>
+          <a href="profile.html">See your profile</a>
         </div>
       </div>
       <div id="dark-button" onclick="darkModeON()">
@@ -41,7 +599,7 @@
     <hr>
     <div class="settings-links">
       <img src="images/setting.png" alt="" class="settings-icon">
-      <a href="#">Settings & Privary <img src="images/arrow.png" alt=""></a>
+      <a href="#" data-toggle="modal" data-target="#myModal6">Settings & Privary <img src="images/arrow.png" alt=""></a>
     </div>
 
     <div class="settings-links">
@@ -56,10 +614,10 @@
   <div class="dashboard">
     <div class="left-dashboard">
       <img   class="dashboard-img" id="account-img3" alt="">
-      <div class="left-dashboard-info">
+      <div class="left-dashboard-info" style="margin-top: 100px" >
         <h3 id="name-user"></h3>
         <p id="demfriend"></p>
-        <div class="mutual-friend-images" >
+        <div class="mutual-friend-images" id="iconfriend" >
           <img id="iconfriend1" alt="">
           <img id="iconfriend2" alt="">
           <img id="iconfriend3" alt="">
@@ -75,49 +633,64 @@
   </div>
 
 
-  <div class="container1 content-profile-container">
-    <div class="left-sidebar profile-left-sidebar">
-      <div class="left-profile-sidebar-top">
-        <div class="intro-bio">
-          <h4>intro</h4>
-          <p>Belive in yourself and you do unbelievable things <i class="far fa-smile-beam"></i></p>
-          <hr>
-        </div>
+  <div class="col-lg-12" style="margin-top: 100px">
+    <div class="central-meta">
+      <div class="title-block">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="align-left">
+              <h5>Friends <span id="demfriend1"></span></h5>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="row merged20">
 
-      </div>
+              <div class="search-box" style="margin-left: 200px">
 
-
-      <div class="left-profile-sidebar-top gallery">
-        <div class="heading-link profile-heading-link">
-          <h4>Friends</h4>
-          <a href="">All Friends</a>
-        </div>
-
-        <div class="gallery-photos">
-          <div class="gallery-photos-rowFirst" id="listfriend">
-
+                <input type="text" placeholder="Search friends">
+                <img src="images/search.png" alt="">
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div><!-- title block -->
+    <div class="central-meta padding30" >
+      <div class="row merged20" id="listfriend2">
 
-    </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="friend-block">
+            <div class="more-opotnz">
+              <i class="fa fa-ellipsis-h"></i>
+              <ul>
+                <li><a href="#" title="">Block</a></li>
+                <li><a href="#" title="">UnBlock</a></li>
+                <li><a href="#" title="">Mute Notifications</a></li>
+                <li><a href="#" title="">hide from friend list</a></li>
+              </ul>
+            </div>
+            <figure>
+              <img src="images/photo1.png" alt="" width="100" height="100">
+            </figure>
 
-    <!-- main-content------- -->
-
-    <div class="content-area profile-content-area">
-      <div class="write-post-container">
+            <div class="frnd-meta">
+              <div class="frnd-name">
+                <a href="#" title="" style="margin-top: 10px">Aishweria</a>
+                <span >New Delhi, India</span>
+              </div>
+              <a class="send-mesg" href="#" title="">Message</a>
+            </div>
+          </div>
+        </div>
 
       </div>
-      <div id="page">
-
-
-      </div>
-      <button type="button" class="btn-LoadMore" onclick="LoadMoreToggle()">Load More</button>
     </div>
   </div>
 </div>
-<footer id="footer">
-  <p>&copy; Copyright 2021 - Socialbook All Rights Reserved</p>
-</footer>
+
 </body>
+<script src="js/manh/showmyfriends.js"></script>
+<script src="function.js"></script>
+<script src="js/manh/login.js"></script>
+
 </html>

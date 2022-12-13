@@ -23,7 +23,7 @@ function search() {
                 let count = 0;
                 for (let i = 0; i < data.length; i++) {
                     str += `
-<div class="online-list">
+                <div class="online-list">
                 <div class="online" >
                     <a onclick="pageFriend(${data[i].account.id})"><img src="${data[i].account.img}" alt=""></a>
                 </div>

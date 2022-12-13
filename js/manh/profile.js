@@ -46,7 +46,8 @@ function showPage() {
                 </div>
             </div>
             <div class="more">
-        <div class="more-post-optns"><i class="fas fa-ellipsis-v"></i>
+        <div class="more-post-optns">
+        <i class="fas fa-ellipsis-v"></i>
         <ul>
         <li><i class="fa fa-pencil-square-o" onclick="getpost(${data[i].id})" data-toggle="modal" data-target="#myModal2" ></i>Edit Post</li>
         <li><i class="fa fa-trash-o" onclick="deletePost(${data[i].id})" ></i>Delete Post</li>
@@ -105,7 +106,7 @@ function showFriend() {
                         <div class="first-friend">
                             <img src="${data[i].img}" alt="">
                             <p>${data[i].fullName}</p>
-                     
+
                         </div>`
                 demFriend += 1;
                 document.getElementById("listfriend").innerHTML = str;
@@ -315,4 +316,6 @@ function editpost() {
         }
     })
 }
+
+
 
