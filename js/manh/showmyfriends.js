@@ -101,3 +101,60 @@ function pageFriend1(id){
     location.href = "profileuser.html"
 }
 
+function Notification1() {
+    $.ajax({
+        type: "Get",
+        url: "http://localhost:8080/notifications",
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        success: function (data) {
+            let str = "";
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].notificationType.id == 1) {
+                    str += `
+<div class="online-list">
+                <div class="online">
+                    <a onclick="pageFriend(${data[i].account1.id})"><img src="${data[i].account1.img}" alt=""></a>
+                </div>
+                <a onclick="pageFriend(${data[i].account1.id})"> ${data[i].account1.fullName} </a>
+                <a href="" style="color: black; margin-left: 5px"> đã comment bài viết của bạn</a>
+            </div>         
+`
+                } else if (data[i].notificationType.id == 2) {
+                    str += `<div class="online-list">
+                <div class="online">
+                    <a onclick="pageFriend(${data[i].account1.id})"><img src="${data[i].account1.img}" alt=""></a>
+                </div>
+                <a onclick="pageFriend(${data[i].account1.id})"> ${data[i].account1.fullName} </a>
+                <a href="" style="color: black; margin-left: 5px"> đã like một bài viết của bạn</a>
+            </div>`
+                } else {
+                    str += `
+    <div class="online-list">
+                <div class="online">
+                    <a onclick="pageFriend(${data[i].account1.id})"><img src="${data[i].account1.img}" alt=""></a>
+                
+                </div>
+                <div>
+                <a onclick="pageFriend(${data[i].account1.id})"> ${data[i].account1.fullName} </a>
+                <a href="" style="color: black; margin-left: 5px"> đã gửi lời mời kết bạn</a>
+                <div style="margin-left: 200px">
+               <button style="background-color: dodgerblue" onclick="newFriend(${data[i].account1.id}, ${data[i].id})">Chấp Nhận</button>
+               <button onclick="unfriend(${data[i].account1.id},${data[i].id})">Từ chối</button>
+</div>
+</div>
+            </div>
+`
+                }
+                document.getElementById("notification").innerHTML = str;
+            }
+
+
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+Notification1();
+
