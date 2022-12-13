@@ -100,24 +100,19 @@ function showFriend() {
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
         success: function (data) {
             let str = "";
-            let demFriend = 0;
+            let demFriend =`<p>${data.length} Friends</p>`;
+            document.getElementById("demfriend").innerHTML = demFriend;
             for (let i = 0; i < data.length; i++) {
                 str += `
                         <div class="first-friend">
                             <img src="${data[i].img}" alt="">
                             <p>${data[i].fullName}</p>
-
                         </div>`
-                demFriend += 1;
-                document.getElementById("listfriend").innerHTML = str;
-                document.getElementById("iconfriend1").src = data[0].img;
-                document.getElementById("iconfriend2").src = data[1].img;
-                document.getElementById("iconfriend3").src = data[2].img;
-
             }
-            document.getElementById("demfriend").innerHTML = demFriend + " Friends";
-
-
+            document.getElementById("listFriend").innerHTML = str;
+            document.getElementById("iconfriend1").src = data[0].img;
+            document.getElementById("iconfriend2").src = data[1].img;
+            document.getElementById("iconfriend3").src = data[2].img;
         },
         error: function (error) {
             console.log(error);
