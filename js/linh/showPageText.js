@@ -27,11 +27,7 @@ function showPage(id){
         <div class="post-reaction">
             <div class="activity-icons">
                 <div><a onclick="like(${data.id}, ${i})" ><img src="images/like.png" alt="" id="${i}" ></a><a data-toggle="modal" data-target="#myModal10" onclick="showListLike(${data.id})" id="${i}p">${data.likePages.length}</a></div>
-                <div><img src="images/comments.png" alt="">${data.cmts.length}</div>
-            </div>
-            <div class="post-profile-picture">
-                <img src="images/profile-pic.png " alt=""> <i class=" fas fa-caret-down"></i>
-            </div>
+                <div><a data-toggle="modal" data-target="#myModal2" onclick="showCmt(${data[i].id})"><img src="images/comments.png" alt=""></a>${data[i].cmts.length}</div>
         </div>
     </div>`
 
