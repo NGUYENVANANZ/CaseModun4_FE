@@ -51,7 +51,7 @@ function profilePost(id) {
         <div class="post-reaction">
             <div class="activity-icons">
                 <div><a onclick="like(${data[i].id}, ${i})" ><img src="images/like.png" alt="" id="${i}" ></a><a data-toggle="modal" data-target="#myModal7" onclick="showListLike(${data[i].id})"  id="${i}p">${data[i].likePages.length}</a></div>
-                <div><img src="images/comments.png" alt="">${data[i].cmts.length}</div>
+                <div><a data-toggle="modal" data-target="#myModal2" onclick="showCmt(${data[i].id})"><img src="images/comments.png" alt=""></a>${data[i].cmts.length}</div>
             </div>
         </div>
     </div>

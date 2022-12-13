@@ -712,6 +712,34 @@
     </div>
 </div>
 
+<div class="modal" id="myModal3">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">List Comment</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" id="listCmt">
+
+            </div>
+            <div>
+                <input id="comment" placeholder="Nhập Comment" ><button data-toggle="modal" data-target="#myModal2" type="button" class="btn btn-primary" onclick="newComment()" id="new">Comment</button>
+                <input id="comment1" placeholder="Nhập Comment" hidden><button data-toggle="modal" data-target="#myModal2" type="button" class="btn btn-primary" onclick="editComment1()" hidden id="edit">Edit</button>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 
 <footer id="footer">
     <p>&copy; Copyright 2021 - Socialbook All Rights Reserved</p>
@@ -723,5 +751,7 @@
 <script src="js/manh/login.js"></script>
 <script src="js/dinh/editUser.js"></script>
 <script src="js/dinh/listAccountLike.js"></script>
+<script src="js/an/Comment.js"></script>
+
 </body>
 </html>
