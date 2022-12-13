@@ -30,7 +30,7 @@ function search() {
                 <div > 
                  <a onclick="pageFriend(${data[i].account.id})"> ${data[i].account.fullName} </a>
                  <br>
-               <p style="color: red">${limit(data[i].text, 20)}</p>            
+               <a onclick="showPageText(${data[i].id})" style="color: red">${limit(data[i].text, 20)}</a>            
                 </div>
                
                 </div>
@@ -87,4 +87,7 @@ function limit(string = '', limit = 0) {
 }
 
 
-
+function showPageText(id){
+    location.href = "showPageText.html"
+    localStorage.setItem("idPage", id);
+}
