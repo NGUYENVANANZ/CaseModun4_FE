@@ -119,13 +119,16 @@ function checkPass1(){
     let pass = document.getElementById("pass").value
     let repass = document.getElementById("repass").value
 
-    if (repass == pass){
+    if (repass === pass){
         document.getElementById("repass-err").innerHTML=" "
+        return true;
     }else {
         document.getElementById("repass-err").innerHTML = `<p style="color: red">Vui lòng nhập đúng !</p>`
+        return  false;
     }
-    if (repass ==""){
+    if (repass ===""){
         document.getElementById("repass-err").innerHTML=""
+        return false;
     }
 }
 
@@ -142,7 +145,10 @@ function checktrong(){
 function dangki1(){
     if (checktrong()){
         checktrong()
-    }else {
+    }else if (!checkPass1()){
+        checkPass1()
+    }
+    else {
         register1();
     }
 }

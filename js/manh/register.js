@@ -59,9 +59,11 @@ function checkUser() {
         },
         success: function (data) {
             document.getElementById("register-err").innerHTML = ""
+
         },
         error() {
             document.getElementById("register-err").innerHTML = `  <p style="color: red">Account already exists!</p>`
+
         }
     })
 }
@@ -92,13 +94,14 @@ function checkPass(){
     let pass = document.getElementById("Password").value
     let repass = document.getElementById("RePassword").value
 
-    if (repass == pass){
-        document.getElementById("pass-err").innerHTML=" "
+    if (repass === pass){
+        document.getElementById("pass-err").innerHTML=""
     }else {
         document.getElementById("pass-err").innerHTML = `<p style="color: red">Password does not match!</p>`
     }
-    if (repass ==""){
+    if (repass ===""){
         document.getElementById("pass-err").innerHTML=""
+
     }
 }
 
@@ -111,9 +114,10 @@ function  checkTrong(){
     let date1 = document.getElementById("Date").value;
     let Address1 = document.getElementById("Address").value;
     let img1 = document.getElementById("img").value;
-
-    if (repassWord1 ==="" ||userName1 ===""|| passWord1===""||phonenumber1===""||fullname1===""||date1===""||Address1===""||img1===""){
-
+    let usererr = document.getElementById("register-err").innerText
+    let passerr = document.getElementById("phonenumber-err").innerText
+    let phoneerr = document.getElementById("pass-err").innerText
+    if (phoneerr!==""||passerr!==""||usererr!==""||repassWord1 ==="" ||userName1 ===""|| passWord1===""||phonenumber1===""||fullname1===""||date1===""||Address1===""||img1===""){
         return true;
     }else {
         return false;
@@ -123,8 +127,9 @@ function  checkTrong(){
 
 function dangki(){
     if (checkTrong()){
-        checkTrong()
-    }else {
+        alert("Đăng kí lỗi vui lòng kiểm tra các trường đã nhập ,đảm bảo không xảy ra lỗi")
+    }
+    else {
         register();
     }
 }
