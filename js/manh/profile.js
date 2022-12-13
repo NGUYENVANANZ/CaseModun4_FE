@@ -171,7 +171,7 @@ function post() {
         data: JSON.stringify(page),
         success: function (data) {
             alert("Dang bai thanh cong")
-            location.href = "/CaseModun4_FE/Case_Module%204/profile.html?_ijt=p0p3p9fehcku2119ip4qc6i0mu&_ij_reload=RELOAD_ON_SAVE";
+            location.href = "profile.html";
         },
         error() {
             alert("err")
@@ -228,8 +228,8 @@ function Notification() {
                 <a onclick="pageFriend(${data[i].account1.id})"> ${data[i].account1.fullName} </a>
                 <a href="" style="color: black; margin-left: 5px"> đã gửi lời mời kết bạn</a>
                 <div style="margin-left: 200px">
-               <button style="background-color: dodgerblue" onclick="newFriend(${data[i].account1.id}, ${data[i].id})">Chấp Nhận</button>
-               <button onclick="unfriend(${data[i].account1.id},${data[i].id})">Từ chối</button>
+               <button style="background-color: dodgerblue" onclick="newFriend1(${data[i].account1.id}, ${data[i].id})">Chấp Nhận</button>
+               <button onclick="unfriend1(${data[i].account1.id},${data[i].id})">Từ chối</button>
 </div>
 </div>
             </div>
@@ -310,6 +310,35 @@ function editpost() {
             console.log(error)
         }
     })
+}
+
+function newFriend1(idFriend, idNo){
+    $.ajax({
+        type: "Post",
+        url: "http://localhost:8080/newFriend/" + idFriend + "&" + idNo,
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        success: function (data) {
+            location.href = "index.html"
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+
+}
+
+function unfriend1(idFriend, iNo){
+    $.ajax({
+        type: "Post",
+        url: "http://localhost:8080/unFriend/" + idFriend + "&" + iNo,
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        success: function (data) {
+            location.href = "index.html"
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
 }
 
 
