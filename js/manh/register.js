@@ -20,7 +20,7 @@ function register() {
         img: img,
     };
 
-
+if (userName.includes("@")){
     $.ajax({
         type: "POST",
         headers: {
@@ -39,6 +39,10 @@ function register() {
             alert("dang ki that bai")
         }
     })
+}else {
+    alert("@ đou")
+}
+
 }
 
 
