@@ -68,6 +68,14 @@ function showPage() {
                     <small>${data[i].time}</small>
                 </div>
             </div>  
+             <div class="more">
+        <div class="more-post-optns">
+        <i class="fas fa-ellipsis-v"></i>
+        <ul>
+        <li><i class="fa fa-clock-o" onclick="sharepost(${data[i].id})"></i>Schedule Post</li>
+        </ul>
+        </div>
+        </div>
         </div>
         <div class="status-field">
             <p>${data[i].text} </p>
@@ -218,6 +226,22 @@ function unfriend(idFriend, iNo) {
             location.href = "index.html"
         },
         error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function sharepost(id){
+    $.ajax({
+        type: "Post",
+        url: "http://localhost:8080/profiles/share/" + id,
+        headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
+        success: function (data) {
+            alert("chia sẻ thành công")
+            location.href = "profile.html"
+        },
+        error: function (error) {
+            alert("lỗi")
             console.log(error);
         }
     });

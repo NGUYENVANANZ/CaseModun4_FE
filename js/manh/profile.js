@@ -40,7 +40,7 @@ function showPage() {
             <div class="user-profile">
                 <img src="${data[i].account.img}" alt="">
                 <div>
-                    <p><a >${data[i].account.fullName}</a></p>
+                    <p><a>${data[i].account.fullName}</a></p>
                     <br>
                     <small>Ngay dang :</small><small>${data[i].time}</small>
                 </div>
@@ -105,9 +105,9 @@ function showFriend() {
             document.getElementById("demfriend").innerHTML = demFriend;
             for (let i = 0; i < data.length; i++) {
                 str += `
-                        <div class="first-friend">
-                            <img src="${data[i].img}" alt="">
-                            <p>${data[i].fullName}</p>
+                        <div class="first-friend" style="width: 71px;height: 70px">
+                            <img src="${data[i].img}" alt=""  width="71" height="45">
+                            <p>${limit1(data[i].fullName, 6)}</p>
                         </div>`
             }
             document.getElementById("listFriend").innerHTML = str;
@@ -352,6 +352,16 @@ function unfriend1(idFriend, iNo){
         }
     });
 }
+
+function limit1(string = '', limit = 0) {
+    if (string.length-1===limit){
+        return string.substring(0, limit)
+    }else {
+        return string.substring(0, limit) + "..."
+    }
+
+}
+
 
 
 

@@ -718,9 +718,10 @@ img.coverImage {
 }
 
 .gallery-photos-rowFirst img {
-    width: 100%;
+    display: block;
     border-radius: 10px;
 }
 .gallery-photos-rowFirst div p {
     font-size: 14px;
 }
+

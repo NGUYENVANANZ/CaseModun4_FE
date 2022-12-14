@@ -83,7 +83,11 @@ function search() {
 
 
 function limit(string = '', limit = 0) {
-    return string.substring(0, limit) + "...."
+    if (string.length-1===limit){
+        return string.substring(0, limit)
+    }else {
+        return string.substring(0, limit) + "..."
+    }
 }
 
 
