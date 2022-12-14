@@ -33,11 +33,11 @@ function register() {
         data: JSON.stringify(account),
         success: function (data) {
             alert("Dang ki thanh cong")
-            location.href= "/login.html";
+            location.href= "login.html";
         },
         error() {
             alert("dang ki that bai")
-            location.href = "/register.html"
+            location.href = "register.html"
         }
     })
 }
