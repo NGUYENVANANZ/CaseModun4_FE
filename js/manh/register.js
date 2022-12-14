@@ -33,7 +33,7 @@ if (userName.includes("@")){
         data: JSON.stringify(account),
         success: function (data) {
             alert("Dang ki thanh cong")
-            location.href= "/login.html";
+            location.href= "login.html";
         },
         error() {
             alert("dang ki that bai")
