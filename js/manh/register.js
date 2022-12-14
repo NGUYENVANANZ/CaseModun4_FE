@@ -37,7 +37,6 @@ function register() {
         },
         error() {
             alert("dang ki that bai")
-            location.href = "/register.html"
         }
     })
 }
