@@ -247,7 +247,7 @@ function Notification() {
 
 
 function deletePost(id) {
-    alert(id)
+    if (confirm("bạn có muốn xóa không?"))
     $.ajax({
         type: "Get",
         headers: {"Authorization": "Bearer " + localStorage.getItem('token')},
