@@ -191,6 +191,17 @@ function xemtruocanhup() {
 
 }
 
+function dangbai1(){
+
+    let fileimg = document.getElementById("imgpost").value
+    let text = document.getElementById("text").value
+
+    if (fileimg===""&&text===""){
+        alert("Đăng bài thất bại do không tìm thấy dữ liệu truyền vào !")
+    }else {
+        post()
+    }
+}
 
 function Notification() {
     $.ajax({
